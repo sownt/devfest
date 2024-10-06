@@ -1,0 +1,49 @@
+services:
+  db:
+    image: mysql
+    container_name: mysql_db
+    restart: always
+    env_file: .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: pma
+    restart: always
+    environment:
+      PMA_HOST: db
+    ports:
+      - "8001:80"
+    depends_on:
+      - db
+
+  apis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gin_app
+    restart: always
+    env_file: .env
+    volumes:
+      - /Users/son/.aws:/root/.aws
+    ports:
+      - "8002:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - SERVICE_PORT=8080
+
+volumes:
+  mysql_data:
