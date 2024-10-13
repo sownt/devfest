@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Comfortaa } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 
 const geistSans = localFont({
@@ -35,6 +36,7 @@ export default function RootLayout({
       >
         {children}
       </body>
+      <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`} />
     </html>
   );
 }

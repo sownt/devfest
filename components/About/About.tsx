@@ -12,6 +12,7 @@ interface AboutProps {
     blocks: AboutBlock[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const About: React.FC<AboutProps> = ({ title, description, blocks }) => {
     return (
         <section className="max-w-6xl mx-auto px-4 py-8">

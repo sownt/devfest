@@ -8,6 +8,7 @@ interface ToastProps {
     onOpenChange: (open: boolean) => void;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Toast: React.FC<ToastProps> = ({ title, description, open, onOpenChange }) => {
     return (
         <ToastPrimitive.Provider>
