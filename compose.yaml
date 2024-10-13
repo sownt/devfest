@@ -25,15 +25,14 @@ services:
     depends_on:
       - db
 
-  apis:
+  registration:
     build:
       context: .
-      dockerfile: Dockerfile
-    container_name: gin_app
+    container_name: registration
     restart: always
     env_file: .env
     volumes:
-      - /Users/son/.aws:/root/.aws
+      - ${AWS_CREDENTIAL}:/root/.aws
     ports:
       - "8002:8080"
     depends_on:
