@@ -255,12 +255,10 @@ func main() {
 				Question:   attendeeForm.Question,
 				Secret:     NewSecretCode(),
 			}
-			id := db.Create(&attendee)
-			if id.Error != nil {
-				c.JSON(http.StatusBadRequest, gin.H{})
-				return
-			}
 			body, err := ParseEmail(attendee, "templates/confirmation.html")
+			if err != nil {
+				fmt.Println(err.Error())
+			}
 			email := Email{
 				From:    os.Getenv("EMAIL_FROM"),
 				To:      attendee.Email,
@@ -271,11 +269,19 @@ func main() {
 			if err != nil {
 				email.Status = false
 				email.Error = err.Error()
+			} else {
+				email.Status = true
+				email.MessageId = *output.MessageId
+			}
+			id := db.Create(&attendee)
+			if id.Error != nil {
+				c.JSON(http.StatusBadRequest, gin.H{})
 				return
 			}
-			email.Status = true
-			email.MessageId = *output.MessageId
-			db.Create(&email)
+			id = db.Create(&email)
+			if id.Error != nil {
+				fmt.Println(id.Error.Error())
+			}
 			c.JSON(http.StatusOK, gin.H{})
 		})
 	}
