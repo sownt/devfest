@@ -18,7 +18,7 @@ interface GalleryBlockProps {
 const Gallery: React.FC<GalleryBlockProps> = ({ photos, title, description, callToAction }) => {
   return (
     <div className="container mx-0 min-w-full shadow-lg"> {/* Add padding to avoid overlap */}
-      <div className="grid gap-1 grid-cols-3 grid-rows-5 sm:grid-cols-5 sm:grid-rows-3 min-h-[500px] max-h-[750px]">
+      <div className="grid gap-1 grid-cols-3 grid-rows-5 sm:grid-cols-5 sm:grid-rows-3 min-h-[750px] max-h-[960px]">
         {/* Gallery Items */}
         {photos.map((photo, index) => (
           <div key={index} className={`relative aspect-w-1 aspect-h-1 bg-gray-200 ${getGridItemStyles(index)}`}>
@@ -33,7 +33,7 @@ const Gallery: React.FC<GalleryBlockProps> = ({ photos, title, description, call
         ))}
 
         {/* Gallery Info */}
-        <div className={`gallery-info bg-gray-700 hover:bg-gray-800 text-white p-6 sm:p-8 flex flex-col justify-between`}>
+        <div className={`gallery-info bg-gray-700 hover:bg-gray-800 text-white p-6 sm:p-8 flex flex-col justify-center`}>
           <div className='hidden sm:block mb-4'>
             <h2>{title}</h2>
             <p>{description}</p>

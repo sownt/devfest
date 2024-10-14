@@ -70,12 +70,12 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({ navItems, logo }) => {
         <div className="flex md:hidden gap-4">
           <a
             href="#ticket"
-            className={`p-3 bg-[#34a853]/80 hover:bg-[#34a853]/90 font-bold rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 ${isScrolled ? 'text-gray-700' : 'text-white'}`}
+            className={`px-4 py-2 bg-[#34a853]/80 hover:bg-[#34a853]/90 font-bold rounded-3xl shadow-lg transition-transform duration-300 transform hover:scale-105 ${isScrolled ? 'text-gray-700' : 'text-white'}`}
           >
             Get ticket
           </a>
           <MenuOutlined
-            className={`text-2xl cursor-pointer transition-colors duration-500 ${isScrolled ? 'text-gray-700' : 'text-white'}`}
+            className={`text-2xl cursor-pointer transition-colors duration-500 ${isScrolled ? 'text-gray-700' : 'text-gray-700'}`}
             onClick={toggleDrawer}
           />
         </div>

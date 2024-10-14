@@ -71,7 +71,7 @@ export default function Home() {
     <>
       <RandomSVGBackground elements={images} />
       <div id="home" className="relative z-10 ">
-        <div className="relative isolate flex flex-col min-h-svh w-full bg-slate-50">
+        <div className="relative isolate flex flex-col min-h-svh w-full bg-slate-50/60">
           <StickyHeader navItems={navItems} logo={<Image className='h-8 w-auto' src={logo} alt="GDG Cloud Hanoi" />} />
           <HeroSection title='DevFest Cloud Hanoi'
             subtitle='is back on November 30'
