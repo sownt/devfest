@@ -126,7 +126,7 @@ export default function Home() {
     {
       name: "Amy Le",
       avatar: "/teams/amy_le.webp",
-      description: "Partnership",
+      description: "Partnership Lead",
       socialLinks: [
         "https://www.facebook.com/miu.espresso.1/",
         "https://www.linkedin.com/in/lethaomy/",
