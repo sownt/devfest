@@ -70,7 +70,7 @@ const getGridItemStyles = (index: number) => {
     case 4:
       return 'col-span-2 sm:col-span-1 sm:row-span-1';
     case 5:
-      return 'hidden sm:block col-span-2';
+      return 'sm:col-span-2';
     case 6:
       return 'hidden sm:block col-span-2';
     case 7:
