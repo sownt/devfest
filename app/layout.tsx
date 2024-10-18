@@ -19,6 +19,7 @@ const productSans = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
   title: "DevFest Cloud Hanoi 2024 | GDG Cloud Hanoi",
   description: "Event by GDG Cloud Hanoi",
 };
