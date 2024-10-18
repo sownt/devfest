@@ -12,7 +12,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 200);
-    return () => clearTimeout(timer); // Cleanup the timer on unmount
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -27,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         }`}
       ></div>
 
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-6xl px-8">
         <div>
           <Image
             src={banner}

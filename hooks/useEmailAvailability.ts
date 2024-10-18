@@ -8,6 +8,7 @@ export const useEmailAvailability = () => {
 
   const checkEmailExists = async (email: string) => {
     setEmailChecking(true);
+    await new Promise(resolve => setTimeout(resolve, 200));
     if (!z.string().email().safeParse(email).success) {
       setEmailChecking(false);
       return;

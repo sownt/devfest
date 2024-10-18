@@ -33,7 +33,7 @@ const PersonalCard: React.FC<PersonalCardProps> = ({
     } else if (domain.includes("instagram.com")) {
       return <FaInstagram className="w-6 h-6 hover:text-pink-500" />;
     } else if (domain.includes("x.com")) {
-      return <FaXTwitter className="w-6 h-6 hover:text-pink-500" />;
+      return <FaXTwitter className="w-6 h-6 hover:text-gray-700" />;
     } else {
       return <FaInternetExplorer className="w-6 h-6 hover:text-blue-700" />;
     }

@@ -7,6 +7,7 @@ export const useRegistration = (emailExists: boolean | null) => {
 
   const postFormData = async (formData: FormFields) => {
     setIsLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 200));
     try {
       if (emailExists) {
         throw new Error("Email already exists. Please use a different email.");

@@ -106,7 +106,7 @@ export default function Home() {
     {
       name: "Truong Nguyen",
       avatar: "/teams/truong_nguyen.webp",
-      description: "GDE / Head of GDG Cloud Hanoi",
+      description: "GDE / Lead",
       socialLinks: [
         "https://www.facebook.com/haitruong.bkhn",
         "https://twitter.com/truongnh92",
@@ -116,7 +116,7 @@ export default function Home() {
     {
       name: "Huy Dang",
       avatar: "/teams/huy_dang.webp",
-      description: "Co-Lead (Board Member)",
+      description: "GDE / Co-Lead",
       socialLinks: [
         "https://www.facebook.com/dangduchuy1995",
         "https://twitter.com/Huyng68437057",
@@ -126,23 +126,23 @@ export default function Home() {
     {
       name: "Amy Le",
       avatar: "/teams/amy_le.webp",
-      description: "Partnership Lead (Board Member)",
+      description: "Partnership",
       socialLinks: [
         "https://www.facebook.com/miu.espresso.1/",
         "https://www.linkedin.com/in/lethaomy/",
       ],
     },
     {
-      name: "Minh Pham (Masi)",
+      name: "Minh Pham",
       avatar: "/teams/minh_pham.webp",
-      description: "Lead Designer",
+      description: "Design Lead",
       socialLinks: [
         "https://www.facebook.com/minhmasi17",
-        "https://www.linkedin.com/in/monstieshin",
+        "https://www.linkedin.com/in/minhptn01/",
       ],
     },
     {
-      name: "Minh Nguyễn Vũ Quang",
+      name: "Minh Quang",
       avatar: "/teams/nvqm.webp",
       description: "Team Tech",
       socialLinks: ["https://www.linkedin.com/in/quangminhnv/"],
@@ -157,7 +157,7 @@ export default function Home() {
       ],
     },
     {
-      name: "Son Tran Thai",
+      name: "Son Tran",
       avatar: "/teams/sownt.webp",
       description: "Tech Lead",
       socialLinks: [
@@ -167,7 +167,7 @@ export default function Home() {
       ],
     },
     {
-      name: "My Hoa Le",
+      name: "My Hoa",
       avatar: "/teams/ltmh.webp",
       description: "PR Lead",
       socialLinks: [],
@@ -262,7 +262,7 @@ export default function Home() {
             <div className="mx-auto max-w-6xl mb-8 px-4">
               <h1 className="text-3xl font-bold">Team</h1>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 content-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 content-center">
               {teams.map((item, index) => (
                 <PersonalCard
                   key={index}

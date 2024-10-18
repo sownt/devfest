@@ -8,8 +8,9 @@ import {
   DatePicker,
   notification,
   Spin,
+  Tooltip,
 } from "antd";
-import { FaCircleExclamation, FaCheck } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa6";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
@@ -96,7 +97,7 @@ export default function RegisterForm() {
 
   return (
     <div
-      className={`mx-auto max-w-6xl w-full bg-white rounded-xl p-12 shadow-lg space-y-6 ${
+      className={`mx-auto max-w-6xl w-full bg-white rounded-xl px-6 py-8 sm:px-12 sm:py-16 shadow-lg space-y-6 ${
         loaded ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -118,7 +119,6 @@ export default function RegisterForm() {
           <Item
             label="Full Name"
             validateStatus={errors.name ? "error" : ""}
-            help={errors.name?.message}
             className="col-span-2"
           >
             <Controller
@@ -129,6 +129,15 @@ export default function RegisterForm() {
                   placeholder="John Doe"
                   {...field}
                   onChange={(e) => field.onChange(e.target.value)}
+                  suffix={
+                    errors.name ? (
+                      <Tooltip title={errors.name?.message}>
+                        <InfoCircleOutlined style={{ color: "red" }} />
+                      </Tooltip>
+                    ) : (
+                      <></>
+                    )
+                  }
                 />
               )}
             />
@@ -137,7 +146,7 @@ export default function RegisterForm() {
           <Item
             label="Year of Birth"
             validateStatus={errors.birthday ? "error" : ""}
-            help={errors.birthday?.message}
+            // help={errors.birthday?.message}
           >
             <DatePicker
               picker="year"
@@ -158,9 +167,10 @@ export default function RegisterForm() {
           <Item
             label="Gender"
             validateStatus={errors.gender ? "error" : ""}
-            help={errors.gender?.message}
+            // help={errors.gender?.message}
           >
             <Select
+              allowClear
               value={getValues("gender") !== "" ? getValues("gender") : null}
               onChange={(value) =>
                 setValue("gender", value, { shouldValidate: true })
@@ -177,7 +187,7 @@ export default function RegisterForm() {
           <Item
             label="Email"
             validateStatus={errors.email || emailExists ? "error" : ""}
-            help={emailExists ? "Email already exists" : errors.email?.message}
+            // help={emailExists ? "Email already exists" : errors.email?.message}
             className="col-span-2 sm:col-span-1"
           >
             <Controller
@@ -187,12 +197,23 @@ export default function RegisterForm() {
                 <Input
                   placeholder="example@mail.com"
                   suffix={
-                    emailChecking ? (
-                      <Spin size="small" />
-                    ) : emailExists ? (
-                      <FaCircleExclamation />
+                    errors.email ? (
+                      <Tooltip title={errors.email?.message}>
+                        <InfoCircleOutlined style={{ color: "red" }} />
+                      </Tooltip>
+                    ) : z.string().email().safeParse(getValues("email"))
+                        .success ? (
+                      emailChecking ? (
+                        <Spin size="small" />
+                      ) : emailExists ? (
+                        <Tooltip title={"This email is already used"}>
+                          <InfoCircleOutlined style={{ color: "red" }} />
+                        </Tooltip>
+                      ) : (
+                        <FaCheck />
+                      )
                     ) : (
-                      <FaCheck />
+                      <></>
                     )
                   }
                   {...field}
@@ -208,7 +229,7 @@ export default function RegisterForm() {
           <Item
             label="Years of Experience"
             validateStatus={errors.experience ? "error" : ""}
-            help={errors.experience?.message}
+            // help={errors.experience?.message}
             className="col-span-2 sm:col-span-1"
           >
             <Select
@@ -233,7 +254,7 @@ export default function RegisterForm() {
           <Item
             label="Job Title"
             validateStatus={errors.job_title ? "error" : ""}
-            help={errors.job_title?.message}
+            // help={errors.job_title?.message}
             className="col-span-2 sm:col-span-1"
           >
             <Controller
@@ -244,6 +265,15 @@ export default function RegisterForm() {
                   placeholder="Cloud Engineer"
                   {...field}
                   onChange={(e) => field.onChange(e.target.value)}
+                  suffix={
+                    errors.job_title ? (
+                      <Tooltip title={errors.job_title?.message}>
+                        <InfoCircleOutlined style={{ color: "red" }} />
+                      </Tooltip>
+                    ) : (
+                      <></>
+                    )
+                  }
                 />
               )}
             />
@@ -252,20 +282,22 @@ export default function RegisterForm() {
           <Item
             label="Sessions"
             validateStatus={errors.sessions ? "error" : ""}
-            help={errors.sessions?.message}
+            // help={errors.sessions?.message}
             className="col-span-2 sm:col-span-1"
           >
             <Select
-              value={getValues("sessions")}
+              value={
+                getValues("sessions") !== "" ? getValues("sessions") : null
+              }
               onChange={(value) =>
                 setValue("sessions", value, { shouldValidate: true })
               }
               options={[
                 { value: "morning", label: "Morning Workshop" },
-                { value: "afternoon", label: "Main Event" },
+                { value: "afternoon", label: "Afternoon Tech Conference" },
                 { value: "both", label: "Both of them" },
               ]}
-              placeholder="Choose your sessions"
+              placeholder="Select sessions"
             />
           </Item>
 
@@ -324,7 +356,7 @@ export default function RegisterForm() {
           </Item>
 
           <Item
-            label="Question for Organizers"
+            label="Questions for Organizer"
             tooltip={{ title: "Optional", icon: <InfoCircleOutlined /> }}
             className="col-span-2"
           >
