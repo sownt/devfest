@@ -1,22 +1,21 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Comfortaa } from 'next/font/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const comfortaa = Comfortaa({
   subsets: ['vietnamese', 'latin'],
   display: 'swap'
+});
+
+const productSans = localFont({
+  src: "./fonts/ProductSans-Regular.ttf",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,17 +23,21 @@ export const metadata: Metadata = {
   description: "Event by GDG Cloud Hanoi",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
   return (
-    <html className="scroll-smooth" lang="en">
-      <body
-        className={`${comfortaa.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html className="scroll-smooth" lang={locale}>
+      <body className={`${productSans.className} antialiased`}>
+        <AntdRegistry>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </AntdRegistry>
       </body>
       <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`} />
     </html>

@@ -25,33 +25,33 @@ import (
 )
 
 type AttendeeForm struct {
-	Name       string `form:"name" binding:"required"`
-	Birthday   string `form:"birthday" binding:"required"`
-	Gender     string `form:"gender" binding:"required"`
-	Email      string `form:"email" binding:"required,email"`
-	Phone      string `form:"phone,omitempty"`
-	Topic      string `form:"topic" binding:"required"`
-	Experience string `form:"experience" binding:"required"`
-	JobTitle   string `form:"job_title" binding:"required"`
-	Company    string `form:"company,omitempty"`
-	LinkedIn   string `form:"linkedin,omitempty"`
-	Question   string `form:"question,omitempty"`
+	Name         string `form:"name" binding:"required"`
+	Birthday     string `form:"birthday" binding:"required"`
+	Gender       string `form:"gender" binding:"required"`
+	Email        string `form:"email" binding:"required,email"`
+	Phone        string `form:"phone,omitempty"`
+	Sessions     string `form:"sessions" binding:"required"`
+	Experience   string `form:"experience" binding:"required"`
+	JobTitle     string `form:"job_title" binding:"required"`
+	CompanyEmail string `form:"company_email,omitempty"`
+	LinkedIn     string `form:"linkedin,omitempty"`
+	Question     string `form:"question,omitempty"`
 }
 
 type Attendee struct {
 	gorm.Model
-	Name       string `gorm:"not null"`
-	Birthday   string `gorm:"not null"`
-	Gender     string `gorm:"not null"`
-	Email      string `gorm:"not null;unique"`
-	Phone      string `gorm:"nullable"`
-	Topic      string `gorm:"not null"`
-	Experience string `gorm:"not null"`
-	JobTitle   string `gorm:"not null"`
-	Company    string `gorm:"nullable"`
-	LinkedIn   string `gorm:"nullable"`
-	Question   string `gorm:"nullable"`
-	Secret     string `gorm:"not null"`
+	Name         string `gorm:"not null"`
+	Birthday     string `gorm:"not null"`
+	Gender       string `gorm:"not null"`
+	Email        string `gorm:"not null;unique"`
+	Phone        string `gorm:"nullable"`
+	Sessions     string `gorm:"not null"`
+	Experience   string `gorm:"not null"`
+	JobTitle     string `gorm:"not null"`
+	CompanyEmail string `gorm:"nullable"`
+	LinkedIn     string `gorm:"nullable"`
+	Question     string `gorm:"nullable"`
+	Secret       string `gorm:"not null"`
 }
 
 type Email struct {
@@ -176,12 +176,11 @@ func main() {
 	// Setup gin
 	r := gin.Default()
 	r.Use(gin.Recovery())
-	r.Use(cors.Default())
-	//r.Use(cors.New(cors.Config{
-	//	AllowOrigins:     []string{os.Getenv("BASE_URL")},
-	//	AllowCredentials: true,
-	//	MaxAge:           12 * time.Hour,
-	//}))
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{os.Getenv("BASE_URL")},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	}))
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
@@ -242,18 +241,18 @@ func main() {
 				return
 			}
 			attendee := Attendee{
-				Name:       attendeeForm.Name,
-				Birthday:   attendeeForm.Birthday,
-				Gender:     attendeeForm.Gender,
-				Email:      attendeeForm.Email,
-				Phone:      attendeeForm.Phone,
-				Topic:      attendeeForm.Topic,
-				Experience: attendeeForm.Experience,
-				JobTitle:   attendeeForm.JobTitle,
-				Company:    attendeeForm.Company,
-				LinkedIn:   attendeeForm.LinkedIn,
-				Question:   attendeeForm.Question,
-				Secret:     NewSecretCode(),
+				Name:         attendeeForm.Name,
+				Birthday:     attendeeForm.Birthday,
+				Gender:       attendeeForm.Gender,
+				Email:        attendeeForm.Email,
+				Phone:        attendeeForm.Phone,
+				Sessions:     attendeeForm.Sessions,
+				Experience:   attendeeForm.Experience,
+				JobTitle:     attendeeForm.JobTitle,
+				CompanyEmail: attendeeForm.CompanyEmail,
+				LinkedIn:     attendeeForm.LinkedIn,
+				Question:     attendeeForm.Question,
+				Secret:       NewSecretCode(),
 			}
 			body, err := ParseEmail(attendee, "templates/confirmation.html")
 			if err != nil {
@@ -262,7 +261,7 @@ func main() {
 			email := Email{
 				From:    os.Getenv("EMAIL_FROM"),
 				To:      attendee.Email,
-				Subject: "Xác nhận đăng ký sự kiện DevFest Cloud Hanoi 2024",
+				Subject: "CẢM ƠN BẠN ĐÃ ĐĂNG KÝ THAM GIA GOOGLE CLOUD DEVFEST HANOI 2024",
 				Body:    body,
 			}
 			output, err := SendEmail(c.Request.Context(), email)

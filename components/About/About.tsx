@@ -16,16 +16,16 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ title, description, blocks }) => {
     return (
         <section className="max-w-6xl mx-auto px-4 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16">
                 {/* Column 1: Title and Description */}
                 <p className="text-gray-700 text-justify">{description}</p>
 
                 {/* Column 2: Keynotes Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-8">
                     {blocks.map((block) => (
                         <div key={block.id} className="flex flex-col items-center justify-center gap-2">
                             <h3 className="text-4xl font-semibold">{block.title}</h3>
-                            <p className="text-gray-600">{block.description}</p>
+                            <p className="text-gray-600 text-center">{block.description}</p>
                         </div>
                     ))}
                 </div>

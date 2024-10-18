@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import Image from 'next/image';
 
@@ -17,23 +18,24 @@ interface GalleryBlockProps {
 
 const Gallery: React.FC<GalleryBlockProps> = ({ photos, title, description, callToAction }) => {
   return (
-    <div className="container mx-0 min-w-full shadow-lg"> {/* Add padding to avoid overlap */}
-      <div className="grid gap-1 grid-cols-3 grid-rows-5 sm:grid-cols-5 sm:grid-rows-3 min-h-[750px] max-h-[960px]">
-        {/* Gallery Items */}
+    <div className="container mx-0 min-w-full shadow-lg">
+      <div className="grid gap-1 grid-cols-3 grid-rows-5 sm:grid-cols-5 sm:grid-rows-3 min-h-[840px] max-h-[1200px]">
         {photos.map((photo, index) => (
           <div key={index} className={`relative aspect-w-1 aspect-h-1 bg-gray-200 ${getGridItemStyles(index)}`}>
             <Image
               src={photo.url}
               alt={`Gallery item ${index + 1}`}
               fill
+              blurDataURL="data:..."
+              placeholder="blur"
               sizes="(max-width: 1200px) 100vw, (max-width: 1920px) 50vw, 33vw"
-              className="transition-transform duration-300 object-cover transform hover:scale-105 hover:z-10 hover:rounded-lg hover:shadow-lg"
+              className="object-cover"
+              // className="transition-transform duration-300 object-cover transform hover:scale-105 hover:z-10 hover:rounded-lg hover:shadow-lg"
             />
           </div>
         ))}
 
-        {/* Gallery Info */}
-        <div className={`gallery-info bg-gray-700 hover:bg-gray-800 text-white p-6 sm:p-8 flex flex-col justify-center`}>
+        {/* <div className={`gallery-info bg-gray-700 hover:bg-gray-800 text-white p-6 sm:p-8 flex flex-col justify-center`}>
           <div className='hidden sm:block mb-4'>
             <h2>{title}</h2>
             <p>{description}</p>
@@ -48,7 +50,7 @@ const Gallery: React.FC<GalleryBlockProps> = ({ photos, title, description, call
               {callToAction.label}
             </button>
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -73,6 +75,8 @@ const getGridItemStyles = (index: number) => {
       return 'hidden sm:block col-span-2';
     case 7:
       return 'hidden sm:block col-span-2';
+    case 8:
+      return 'hidden sm:block';
     default:
       return 'hidden';
   }

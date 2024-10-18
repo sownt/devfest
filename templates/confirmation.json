@@ -71,7 +71,7 @@
       },
       "props": {
         "markdown": true,
-        "text": "Cảm ơn bạn đã quan tâm và đăng ký tham gia sự kiện <b>DevFest Cloud Hanoi 2024</b>. Do sự kiện có số lượng người tham gia hạn chế, GDG Cloud Hanoi sẽ tiến hành lựa chọn những ứng viên phù hợp nhất. Chúng tôi cam kết sẽ thông báo đến bạn kết quả trong thời gian sớm nhất."
+        "text": "Cảm ơn bạn đã đăng ký tham gia ngày hội công nghệ <b>Google Cloud DevFest Hanoi 2024</b>. GDG Cloud Hanoi rất trân trọng sự quan tâm của bạn dành cho sự kiện này."
       }
     }
   },
@@ -336,7 +336,8 @@
         }
       },
       "props": {
-        "text": "Cảm ơn bạn một lần nữa vì sự quan tâm và mong được gặp bạn tại sự kiện."
+        "markdown": true,
+        "text": "Trong thời gian chờ đợi, nếu có bất kỳ thắc mắc nào, bạn vui lòng liên hệ [Facebook GDG Cloud Hanoi](https://www.facebook.com/GDGCloudHanoi) để được tư vấn và hỗ trợ sớm nhất."
       }
     }
   },
@@ -354,7 +355,7 @@
       },
       "props": {
         "markdown": true,
-        "text": "Trân trọng,\nGDG Cloud Hanoi."
+        "text": "Trân trọng,\n_GDG Cloud Hanoi Team_."
       }
     }
   },
@@ -417,6 +418,7 @@
     "type": "Text",
     "data": {
       "style": {
+        "color": null,
         "fontWeight": "normal",
         "padding": {
           "top": 16,
@@ -426,8 +428,8 @@
         }
       },
       "props": {
-        "markdown": false,
-        "text": "Nếu bạn có bất kỳ câu hỏi nào hoặc cần thêm thông tin, xin vui lòng liên hệ với chúng tôi."
+        "markdown": true,
+        "text": "Do giới hạn về số lượng người tham gia, BTC sẽ ưu tiên chọn lựa những đơn đăng ký phù hợp nhất để đảm bảo sự kiện diễn ra thành công và mang lại trải nghiệm tốt nhất cho tất cả mọi người. Những tech-lovers phù hợp sẽ nhận được _<span style=\"color:red\">email xác nhận đăng ký thành công</span>_ kèm theo vé tham dự và thông tin chi tiết về chương trình trong thời gian tới."
       }
     }
   }
