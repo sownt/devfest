@@ -1,5 +1,8 @@
 services:
   db:
+    profiles:
+      - dev
+      - prod
     image: mysql
     container_name: mysql_db
     restart: always
@@ -12,29 +15,38 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - ${EXPOSE_DATABASE}:3306
 
   phpmyadmin:
+    profiles:
+      - dev
+      - prod
     image: phpmyadmin
     container_name: pma
     restart: always
     environment:
       PMA_HOST: db
     ports:
-      - "8001:80"
+      - ${EXPOSE_PMA}:80
     depends_on:
       - db
 
-  registration:
+  api:
+    profiles:
+      - dev
+      - prod
     build:
       context: .
-    container_name: registration
+      target: api
+    container_name: api
     restart: always
     env_file: .env
     volumes:
       - ${AWS_CREDENTIAL}:/root/.aws
+      - ./api/templates:/app/templates
+      - .env:/app/.env
     ports:
-      - "8002:8080"
+      - ${EXPOSE_API}:8080
     depends_on:
       - db
     environment:
@@ -43,6 +55,36 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
       - SERVICE_PORT=8080
+      - GO_ENV=production
+
+  app:
+    profiles:
+      - dev
+    container_name: app-dev
+    build:
+      context: .
+      target: app-dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - ${EXPOSE_APP}:3000
+    environment:
+      NODE_ENV: development
+    command: npm run dev
+
+  app-prod:
+    profiles:
+      - prod
+    container_name: app-prod
+    build:
+      context: .
+      target: app-prod
+    ports:
+      - ${EXPOSE_APP}:3000
+    environment:
+      NODE_ENV: production
+    command: npm start
 
 volumes:
   mysql_data:

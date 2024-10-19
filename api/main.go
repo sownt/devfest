@@ -177,7 +177,7 @@ func main() {
 	r := gin.Default()
 	r.Use(gin.Recovery())
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{os.Getenv("BASE_URL")},
+		AllowOrigins:     []string{os.Getenv("NEXT_PUBLIC_BASE_URL")},
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
 	}))

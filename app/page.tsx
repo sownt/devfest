@@ -28,7 +28,7 @@ export default function Home() {
     { label: t("Home"), target: "home" },
     { label: t("About"), target: "about" },
     { label: t("Gallery"), target: "gallery" },
-    { label: t("Venue"), target: "venue" },
+    // { label: t("Venue"), target: "venue" },
     { label: t("Team"), target: "team" },
   ];
 
@@ -215,27 +215,10 @@ export default function Home() {
               blocks={aboutData}
             />
           </div>
-          <div id="gallery" className="pt-24">
-            <div className="mx-auto max-w-6xl mb-8 px-4">
-              <h1 className="text-3xl font-bold">Gallery</h1>
-            </div>
-            <Gallery
-              photos={photoGallery}
-              title="DevFest Cloud Hanoi 2023"
-              description=""
-              callToAction={{
-                label: "SEE ALL PHOTOS",
-                link: "https://drive.google.com/drive/folders/1wYij6OMCsx9gxK-0LqTWZ9ZBmsIm8ZC1",
-              }}
-            />
-          </div>
-          <div id="ticket" className="pt-24 px-4">
-            <RegisterForm />
-          </div>
           <div id="venue" className="pt-24">
-            <div className="mx-auto max-w-6xl mb-8 px-4">
+            {/* <div className="mx-auto max-w-6xl mb-8 px-4">
               <h1 className="text-3xl font-bold">Venue & Time</h1>
-            </div>
+            </div> */}
             {process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY && (
               <MapBlock
                 location={{
@@ -257,6 +240,23 @@ export default function Home() {
                 googleMapApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
               />
             )}
+          </div>
+          <div id="gallery" className="pt-24">
+            <div className="mx-auto max-w-6xl mb-8 px-4">
+              <h1 className="text-3xl font-bold">Gallery</h1>
+            </div>
+            <Gallery
+              photos={photoGallery}
+              title="DevFest Cloud Hanoi 2023"
+              description=""
+              callToAction={{
+                label: "SEE ALL PHOTOS",
+                link: "https://drive.google.com/drive/folders/1wYij6OMCsx9gxK-0LqTWZ9ZBmsIm8ZC1",
+              }}
+            />
+          </div>
+          <div id="ticket" className="pt-24 px-4">
+            <RegisterForm />
           </div>
           <div id="team" className="mx-auto max-w-6xl pt-24 px-4">
             <div className="mx-auto max-w-6xl mb-8 px-4">
