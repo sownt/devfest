@@ -6,6 +6,9 @@ on:
 
 jobs:
   deploy:
+    environment:
+      name: Production
+      url: ${{ env.DOMAIN }}
     name: Deploy
     runs-on: ubuntu-latest
     steps:
