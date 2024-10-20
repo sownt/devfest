@@ -24,6 +24,7 @@ export async function recaptchaMiddleware(req: NextRequest) {
         { status: 400 }
       );
     }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return new NextResponse(
       JSON.stringify({ message: "Internal Server Error" }),

@@ -34,6 +34,7 @@ export async function POST(req: NextRequest, { params }: { params: { slug: strin
       statusText: response.statusText,
       headers: response.headers,
     });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return NextResponse.json("Internal Server Error");
   }
