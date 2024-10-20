@@ -13,51 +13,28 @@ import {
 import { FaCheck } from "react-icons/fa6";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { useForm, Controller } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { useEmailAvailability } from "@/hooks/useEmailAvailability";
 import { useRegistration } from "@/hooks/useRegister";
 import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import {
+  registerFormDefault,
+  RegisterFormFields,
+  registerFormSchema,
+} from "@/types/forms";
 
 const { Item } = Form;
 const { TextArea } = Input;
-
-const formSchema = z.object({
-  name: z.string().min(1, "Required"),
-  birthday: z.string().min(4, "Required"),
-  gender: z.string().min(1, "Required"),
-  email: z.string().min(1, "Required").email("Invalid email"),
-  sessions: z.string().min(1, "Required"),
-  experience: z.string().min(1, "Required"),
-  job_title: z.string().min(1, "Required"),
-  phone: z.string().optional(),
-  company_email: z.string().optional(),
-  linkedin: z.string().optional(),
-  question: z.string().optional(),
-});
-
-const formDefault = {
-  name: "",
-  birthday: "",
-  gender: "",
-  email: "",
-  phone: "",
-  sessions: "",
-  experience: "",
-  job_title: "",
-  company: "",
-  linkedin: "",
-  question: "",
-};
-
-type FormData = z.infer<typeof formSchema>;
+dayjs.extend(customParseFormat);
+const yearFormat = "YYYY";
 
 export default function RegisterForm() {
   const [loaded, setLoaded] = useState(false);
-  const { emailChecking, emailExists, checkEmailExists } =
+  const { availabilityLoading, availabile, checkAvailability } =
     useEmailAvailability();
-  const { isLoading, postFormData } = useRegistration(emailExists);
+  const { isLoading, postFormData } = useRegistration();
 
   const {
     control,
@@ -66,12 +43,15 @@ export default function RegisterForm() {
     getValues,
     formState: { errors },
     reset,
-  } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-    defaultValues: formDefault,
+  } = useForm<RegisterFormFields>({
+    resolver: zodResolver(registerFormSchema),
+    defaultValues: registerFormDefault,
   });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: RegisterFormFields) => {
+    if (!availabile) {
+      return;
+    }
     try {
       const res = await postFormData(data);
       if (res.status === 200) {
@@ -87,7 +67,7 @@ export default function RegisterForm() {
   const handleEmailChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
     if (email) {
-      await checkEmailExists(email);
+      await checkAvailability(email);
     }
   };
   useEffect(() => {
@@ -146,21 +126,25 @@ export default function RegisterForm() {
           <Item
             label="Year of Birth"
             validateStatus={errors.birthday ? "error" : ""}
-            // help={errors.birthday?.message}
           >
-            <DatePicker
-              picker="year"
-              placeholder="YYYY"
-              minDate={dayjs("1900-01-01")}
-              maxDate={dayjs("2024-01-01")}
-              onChange={(_, dateString) => {
-                if (Array.isArray(dateString)) {
-                  setValue("birthday", "");
-                } else {
-                  setValue("birthday", dateString, { shouldValidate: true });
-                }
-              }}
-              className="w-full"
+            <Controller
+              name="birthday"
+              control={control}
+              render={({ field }) => (
+                <DatePicker
+                  {...field}
+                  picker="year"
+                  placeholder="YYYY"
+                  format={yearFormat}
+                  minDate={dayjs("1900", yearFormat)}
+                  maxDate={dayjs("2024", yearFormat)}
+                  value={field.value ? dayjs(field.value, yearFormat) : null}
+                  onChange={(_, dateString) => {
+                    field.onChange(Array.isArray(dateString) ? "" : dateString);
+                  }}
+                  className="w-full"
+                />
+              )}
             />
           </Item>
 
@@ -186,8 +170,11 @@ export default function RegisterForm() {
 
           <Item
             label="Email"
-            validateStatus={errors.email || emailExists ? "error" : ""}
-            // help={emailExists ? "Email already exists" : errors.email?.message}
+            validateStatus={
+              errors.email || (availabile !== null && !availabile)
+                ? "error"
+                : ""
+            }
             className="col-span-2 sm:col-span-1"
           >
             <Controller
@@ -201,19 +188,16 @@ export default function RegisterForm() {
                       <Tooltip title={errors.email?.message}>
                         <InfoCircleOutlined style={{ color: "red" }} />
                       </Tooltip>
-                    ) : z.string().email().safeParse(getValues("email"))
-                        .success ? (
-                      emailChecking ? (
-                        <Spin size="small" />
-                      ) : emailExists ? (
-                        <Tooltip title={"This email is already used"}>
-                          <InfoCircleOutlined style={{ color: "red" }} />
-                        </Tooltip>
-                      ) : (
-                        <FaCheck />
-                      )
-                    ) : (
+                    ) : availabilityLoading ? (
+                      <Spin size="small" />
+                    ) : availabile === null ? (
                       <></>
+                    ) : availabile ? (
+                      <FaCheck />
+                    ) : (
+                      <Tooltip title={"This email is already used"}>
+                        <InfoCircleOutlined style={{ color: "red" }} />
+                      </Tooltip>
                     )
                   }
                   {...field}

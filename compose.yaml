@@ -4,7 +4,7 @@ services:
       - dev
       - prod
     image: mysql
-    container_name: mysql_db
+    container_name: devfest_db
     restart: always
     env_file: .env
     environment:
@@ -16,13 +16,17 @@ services:
       - mysql_data:/var/lib/mysql
     ports:
       - ${EXPOSE_DATABASE}:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
 
-  phpmyadmin:
+  dbms:
     profiles:
       - dev
       - prod
     image: phpmyadmin
-    container_name: pma
+    container_name: devfest_dbms
     restart: always
     environment:
       PMA_HOST: db
@@ -48,7 +52,8 @@ services:
     ports:
       - ${EXPOSE_API}:8080
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - DB_HOST=db
       - DB_USER=${DB_USER}
@@ -57,10 +62,10 @@ services:
       - SERVICE_PORT=8080
       - GO_ENV=production
 
-  app:
+  app-dev:
     profiles:
       - dev
-    container_name: app-dev
+    container_name: app
     build:
       context: .
       target: app-dev
@@ -76,7 +81,7 @@ services:
   app-prod:
     profiles:
       - prod
-    container_name: app-prod
+    container_name: app
     build:
       context: .
       target: app-prod

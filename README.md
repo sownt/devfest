@@ -3,14 +3,17 @@
 First, set up the `.env` file:
 ```bash
 cp .env.example .env
+# Then update environment variables
 ```
 
 Run the docker services
 ```bash
-PROFILE=prod docker compose --profile $PROFILE up -d
+docker compose --profile prod up -d
+# OR
+docker compose --profile dev up -d
 ```
 
 ## Rebuild
 ```bash
-PROFILE=prod SERVICES="api app" docker compose --profile $PROFILE up --build $SERVICES -d
+docker compose --profile prod up --build api app -d
 ```
