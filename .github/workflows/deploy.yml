@@ -19,6 +19,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         script: |
-          cd /root/devfest_form
+          cd /root/devfest
           git pull
           docker compose --profile prod up --build -d

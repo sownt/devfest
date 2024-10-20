@@ -3,29 +3,33 @@ import { z } from "zod";
 import axios from "axios";
 
 export const useEmailAvailability = () => {
-  const [emailChecking, setEmailChecking] = useState(false);
-  const [emailExists, setEmailExists] = useState<boolean | null>(null);
+  const [availabilityLoading, setAvailabilityLoading] = useState(false);
+  const [availabile, setAvailabile] = useState<boolean | null>(null);
 
-  const checkEmailExists = async (email: string) => {
-    setEmailChecking(true);
+  const checkAvailability = async (email: string) => {
+    setAvailabilityLoading(true);
+
     await new Promise(resolve => setTimeout(resolve, 200));
     if (!z.string().email().safeParse(email).success) {
-      setEmailChecking(false);
+      setAvailabilityLoading(false);
+      setAvailabile(null);
       return;
     }
+
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/attendee/check-email`,
         { email },
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      setEmailExists(response.data.status);
+      
+      setAvailabile(!response.data.status);
     } catch (error) {
-      console.error("Email check failed", error);
+      setAvailabile(null);
     } finally {
-      setEmailChecking(false);
+      setAvailabilityLoading(false);
     }
   };
 
-  return { emailChecking, emailExists, checkEmailExists };
+  return { availabilityLoading, availabile, checkAvailability };
 };

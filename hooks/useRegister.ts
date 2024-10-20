@@ -1,18 +1,14 @@
 import { useState } from "react";
-import { FormFields } from "@/types/form";
+import { RegisterFormFields } from "@/types/forms";
 import axios from "axios";
 
-export const useRegistration = (emailExists: boolean | null) => {
+export const useRegistration = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const postFormData = async (formData: FormFields) => {
+  const postFormData = async (formData: RegisterFormFields) => {
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 200));
     try {
-      if (emailExists) {
-        throw new Error("Email already exists. Please use a different email.");
-      }
-
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/attendee/attend`,
         formData,

@@ -4,13 +4,13 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { Comfortaa } from 'next/font/google';
+import { Comfortaa } from "next/font/google";
 import "./globals.css";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const comfortaa = Comfortaa({
-  subsets: ['vietnamese', 'latin'],
-  display: 'swap'
+  subsets: ["vietnamese", "latin"],
+  display: "swap",
 });
 
 const productSans = localFont({
