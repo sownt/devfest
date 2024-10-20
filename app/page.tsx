@@ -223,7 +223,7 @@ export default function Home() {
                 blocks={aboutData}
               />
             </div>
-            <div id="venue" className="pt-24">
+            <div id="venue">
               {/* <div className="mx-auto max-w-6xl mb-8 px-4">
               <h1 className="text-3xl font-bold">Venue & Time</h1>
             </div> */}
