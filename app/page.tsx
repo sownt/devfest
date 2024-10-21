@@ -171,7 +171,10 @@ export default function Home() {
       name: "My Hoa",
       avatar: "/teams/ltmh.webp",
       description: "PR Lead",
-      socialLinks: [],
+      socialLinks: [
+        "https://www.facebook.com/huu.ngaan",
+        "https://linkedin.com/in/huungan",
+      ],
     },
     {
       name: "Hà Phạm",
