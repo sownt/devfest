@@ -30,6 +30,7 @@ services:
     restart: always
     environment:
       PMA_HOST: db
+      UPLOAD_LIMIT: 128MB
     ports:
       - ${EXPOSE_PMA}:80
     depends_on:
