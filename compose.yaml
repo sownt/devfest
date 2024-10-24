@@ -30,6 +30,7 @@ services:
     restart: always
     environment:
       PMA_HOST: db
+      UPLOAD_LIMIT: 128MB
     ports:
       - ${EXPOSE_PMA}:80
     depends_on:
@@ -61,6 +62,27 @@ services:
       - DB_NAME=${DB_NAME}
       - SERVICE_PORT=8080
       - GO_ENV=production
+
+  fastapi:
+    profiles:
+      - wip
+    build: ./fastapi
+    restart: always
+    command: uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8004
+    volumes:
+      - ./fastapi/:/opt/projects/app/
+    ports:
+      - 8004:8004
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "sh", "-c", "curl -s -f http://localhost:8004/v1/health/ping || exit 1"]
+      interval: 60s
+      timeout: 3s
+      retries: 3
+    depends_on:
+      db:
+        condition: service_healthy
 
   app-dev:
     profiles:
