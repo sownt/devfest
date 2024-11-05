@@ -1,6 +1,6 @@
 FROM golang:bullseye AS api-builder
 WORKDIR /app
-COPY api/go.mod api/go.sum ./
+COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o goapp .
