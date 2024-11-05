@@ -1,4 +1,4 @@
-name: Build Web Docker Image
+name: Build API Docker Image
 
 on:
   push:
