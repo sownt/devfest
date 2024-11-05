@@ -3,6 +3,8 @@ name: Build Web Docker Image
 on:
   push:
     branches: [ "migrate" ]
+  paths-ignore:
+    - 'api/'
 
 env:
   IMAGE_NAME: ${{ github.repository }}

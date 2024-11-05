@@ -3,6 +3,8 @@ name: Build API Docker Image
 on:
   push:
     branches: [ "migrate" ]
+    paths:
+      - api
 
 env:
   REGISTRY: ${{ secrets.REGISTRY }}
