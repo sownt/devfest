@@ -44,7 +44,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sownt/devfest_web
+          images: sownt/devfest_api
 
       - name: Build and push Docker image
         id: build-and-push
