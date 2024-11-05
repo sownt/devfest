@@ -1,13 +1,13 @@
-name: Build Web Docker Image
+name: Build API Docker Image
 
 on:
   push:
     branches: [ "migrate" ]
-    paths-ignore:
-      - 'api/'
+    paths:
       - 'admin_api/'
 
 env:
+  REGISTRY: ${{ secrets.REGISTRY }}
   IMAGE_NAME: ${{ github.repository }}
 
 
@@ -46,7 +46,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
         with:
-          registry: ${{ secrets.REGISTRY }}
+          registry: ${{ env.REGISTRY }}
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_TOKEN }}
 
@@ -64,9 +64,9 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
-          context: .
+          context: api/
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
