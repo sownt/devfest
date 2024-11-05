@@ -1,5 +1,5 @@
 services:
-  db:
+  mysql:
     profiles:
       - dev
       - prod
@@ -17,25 +17,33 @@ services:
     ports:
       - ${EXPOSE_DATABASE}:3306
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 10s
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 5s
       retries: 10
 
-  dbms:
+  postgres:
     profiles:
       - dev
       - prod
-    image: phpmyadmin
-    container_name: devfest_dbms
+    image: postgres
+    container_name: devfest_db
     restart: always
+    env_file: .env
+    shm_size: 128mb
     environment:
-      PMA_HOST: db
-      UPLOAD_LIMIT: 128M
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_USER}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
     ports:
-      - ${EXPOSE_PMA}:80
-    depends_on:
-      - db
-
+      - ${EXPOSE_DATABASE}:5432
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+  
   api:
     profiles:
       - dev
@@ -53,7 +61,7 @@ services:
     ports:
       - ${EXPOSE_API}:8080
     depends_on:
-      db:
+      mysql:
         condition: service_healthy
     environment:
       - DB_HOST=db
@@ -76,7 +84,7 @@ services:
     env_file:
       - .env
     healthcheck:
-      test: ["CMD", "sh", "-c", "curl -s -f http://localhost:8004/v1/health/ping || exit 1"]
+      test: [ "CMD", "sh", "-c", "curl -s -f http://localhost:8004/v1/health/ping || exit 1" ]
       interval: 60s
       timeout: 3s
       retries: 3
@@ -115,3 +123,4 @@ services:
 
 volumes:
   mysql_data:
+  pg_data:

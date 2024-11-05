@@ -1,26 +1,16 @@
 package main
 
 import (
-	"devfest_api/docs"
+	"devfest_admin_api/docs"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/google/uuid"
 	"github.com/joho/godotenv"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"gorm.io/gorm"
 	"log"
 	"os"
 	"time"
 )
-
-var (
-	db *gorm.DB
-)
-
-func NewSecretCode() string {
-	return uuid.New().String()[:6]
-}
 
 func main() {
 	// Set up timezone
@@ -35,6 +25,9 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
+	// Init database
+	InitDatabase()
+
 	// Setup gin
 	r := gin.Default()
 	r.Use(gin.Recovery())
@@ -47,6 +40,19 @@ func main() {
 	// Routes
 	r.GET("/ping", Ping)
 	r.GET("/qr", GenerateQr)
+	r.POST("/login", Login)
+
+	authorized := r.Group("/", RequiredLogin())
+	{
+		authorized.POST("/logout", Logout)
+		analytics := authorized.Group("/analytics")
+		{
+			analytics.GET("/summary", Summary)
+			analytics.GET("/gender", Gender)
+			analytics.GET("/birthday", Birthday)
+			analytics.GET("/experience", Experience)
+		}
+	}
 
 	attendee := r.Group("/attendee")
 	{
