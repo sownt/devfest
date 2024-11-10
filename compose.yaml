@@ -27,7 +27,7 @@ services:
       - dev
       - prod
     build:
-      context: .
+      context: api/
       target: api
     container_name: api
     restart: always
