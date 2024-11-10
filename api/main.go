@@ -2,9 +2,9 @@ package main
 
 import (
 	"devfest_api/docs"
+	firebase "firebase.google.com/go"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/google/uuid"
 	"github.com/joho/godotenv"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -14,13 +14,14 @@ import (
 	"time"
 )
 
-var (
-	db *gorm.DB
+const (
+	UserSessionExpiresIn = time.Hour * 24
 )
 
-func NewSecretCode() string {
-	return uuid.New().String()[:6]
-}
+var (
+	db          *gorm.DB
+	firebaseApp *firebase.App
+)
 
 func main() {
 	// Set up timezone
@@ -47,11 +48,29 @@ func main() {
 	// Routes
 	r.GET("/ping", Ping)
 	r.GET("/qr", GenerateQr)
+	r.POST("/login", Login)
+
+	authorized := r.Group("/", RequiredLogin())
+	{
+		authorized.GET("/admin/ping", Ping)
+		authorized.POST("/logout", Logout)
+		authorized.POST("/ticket", CreateTicket)
+		authorized.GET("/check-in", CheckInEvent)
+		analytics := authorized.Group("/analytics")
+		{
+			analytics.GET("/summary", Summary)
+			analytics.GET("/gender", Gender)
+			analytics.GET("/birthday", Birthday)
+			analytics.GET("/experience", Experience)
+		}
+	}
 
 	attendee := r.Group("/attendee")
 	{
 		attendee.POST("/email", CheckEmail)
 		attendee.POST("/attend", Attend)
+		attendee.GET("/ticket", GetTicketDetail)
+		attendee.GET("/all", GetAttendees)
 	}
 
 	// Swagger

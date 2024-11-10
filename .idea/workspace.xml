@@ -5,25 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fcf46ed-c770-4748-90d7-050731a849e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/devfest_form.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build_admin_api.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6b175c14-f9fd-44a8-bfd8-ece87da342ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6b175c14-f9fd-44a8-bfd8-ece87da342ea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6b175c14-f9fd-44a8-bfd8-ece87da342ea/storage_v2/_src_/database/devfest.9Vj3XA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6b175c14-f9fd-44a8-bfd8-ece87da342ea/storage_v2/_src_/database/devfest.9Vj3XA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/crypto.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/database.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/docs/docs.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/docs/swagger.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/docs/swagger.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/email.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/firebase.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/model.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/route.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_api/validator.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/database.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/confirmation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/confirmation.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/ticket.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/ticket.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/middleware.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useEmailAvailability.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useEmailAvailability.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/validator.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reports/_components/Summary.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reports/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reports/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workspace.code-workspace" beforeDir="false" afterPath="$PROJECT_DIR$/workspace.code-workspace" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +54,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="TypeScript File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -63,7 +84,8 @@
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;migrate&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/son/Desktop/devfest&quot;,
@@ -72,7 +94,8 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.emmet.xml&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/son/Desktop/devfest/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -82,6 +105,15 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/admin_api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/admin/dashboard" />
+      <recent name="$PROJECT_DIR$/api" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="go build devfest_api" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="devfest" />
@@ -90,7 +122,9 @@
       <package value="devfest_api" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/api/main.go" />
-      <method v="2" />
+      <method v="2">
+        <option name="GoBeforeRunTask" command="clean" />
+      </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -102,8 +136,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-5df93f7ad4aa-df9ad98b711f-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-242.23339.24" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-GO-242.23339.24" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
       </set>
     </attachedChunks>
   </component>
@@ -118,6 +151,8 @@
       <workItem from="1729917721494" duration="7107000" />
       <workItem from="1730006474245" duration="4661000" />
       <workItem from="1730143574459" duration="2629000" />
+      <workItem from="1730972299096" duration="21210000" />
+      <workItem from="1731257026021" duration="2664000" />
     </task>
     <servers />
   </component>

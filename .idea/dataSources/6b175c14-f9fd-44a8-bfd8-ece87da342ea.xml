@@ -11,9 +11,9 @@
 4||10|c|G
 4||10|C|G
 4||10|T|G</Grants>
-      <IntrospectionStateNumber>796</IntrospectionStateNumber>
+      <IntrospectionStateNumber>872</IntrospectionStateNumber>
       <ServerVersion>17.0</ServerVersion>
-      <StartupTime>1730143589</StartupTime>
+      <StartupTime>1731261775</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -95,8 +95,8 @@ false Africa/Timbuktu
 false Africa/Tripoli
 false Africa/Tunis
 false Africa/Windhoek
-true America/Adak
-true America/Anchorage
+false America/Adak
+false America/Anchorage
 false America/Anguilla
 false America/Antigua
 false America/Araguaina
@@ -116,7 +116,7 @@ false America/Argentina/Ushuaia
 false America/Aruba
 true America/Asuncion
 false America/Atikokan
-true America/Atka
+false America/Atka
 false America/Bahia
 false America/Bahia_Banderas
 false America/Barbados
@@ -152,7 +152,7 @@ false America/Dominica
 false America/Edmonton
 false America/Eirunepe
 false America/El_Salvador
-true America/Ensenada
+false America/Ensenada
 false America/Fort_Nelson
 false America/Fort_Wayne
 false America/Fortaleza
@@ -181,14 +181,14 @@ false America/Inuvik
 false America/Iqaluit
 false America/Jamaica
 false America/Jujuy
-true America/Juneau
+false America/Juneau
 false America/Kentucky/Louisville
 false America/Kentucky/Monticello
 false America/Knox_IN
 false America/Kralendijk
 false America/La_Paz
 false America/Lima
-true America/Los_Angeles
+false America/Los_Angeles
 false America/Louisville
 false America/Lower_Princes
 false America/Maceio
@@ -201,7 +201,7 @@ false America/Mazatlan
 false America/Mendoza
 false America/Menominee
 false America/Merida
-true America/Metlakatla
+false America/Metlakatla
 false America/Mexico_City
 false America/Miquelon
 false America/Moncton
@@ -212,7 +212,7 @@ false America/Montserrat
 false America/Nassau
 false America/New_York
 false America/Nipigon
-true America/Nome
+false America/Nome
 false America/Noronha
 false America/North_Dakota/Beulah
 false America/North_Dakota/Center
@@ -236,14 +236,14 @@ false America/Regina
 false America/Resolute
 false America/Rio_Branco
 false America/Rosario
-true America/Santa_Isabel
+false America/Santa_Isabel
 false America/Santarem
 true America/Santiago
 false America/Santo_Domingo
 false America/Sao_Paulo
 false America/Scoresbysund
 false America/Shiprock
-true America/Sitka
+false America/Sitka
 false America/St_Barthelemy
 false America/St_Johns
 false America/St_Kitts
@@ -254,14 +254,14 @@ false America/Swift_Current
 false America/Tegucigalpa
 false America/Thule
 false America/Thunder_Bay
-true America/Tijuana
+false America/Tijuana
 false America/Toronto
 false America/Tortola
-true America/Vancouver
+false America/Vancouver
 false America/Virgin
 false America/Whitehorse
 false America/Winnipeg
-true America/Yakutat
+false America/Yakutat
 false America/Yellowknife
 false Antarctica/Casey
 false Antarctica/Davis
@@ -446,7 +446,7 @@ false Canada/Central
 false Canada/Eastern
 false Canada/Mountain
 false Canada/Newfoundland
-true Canada/Pacific
+false Canada/Pacific
 false Canada/Saskatchewan
 false Canada/Yukon
 true Chile/Continental
@@ -651,7 +651,7 @@ true MUST
 false MUT
 false MVT
 false MYT
-true Mexico/BajaNorte
+false Mexico/BajaNorte
 false Mexico/BajaSur
 false Mexico/General
 true NDT
@@ -682,7 +682,7 @@ false PMST
 false PONT
 false PRC
 false PST
-true PST8PDT
+false PST8PDT
 false PWT
 true PYST
 true PYT
@@ -752,8 +752,8 @@ false Turkey
 false UCT
 true ULAST
 false ULAT
-true US/Alaska
-true US/Aleutian
+false US/Alaska
+false US/Aleutian
 false US/Arizona
 false US/Central
 false US/East-Indiana
@@ -762,7 +762,7 @@ false US/Hawaii
 false US/Indiana-Starke
 false US/Michigan
 false US/Mountain
-true US/Pacific
+false US/Pacific
 false US/Samoa
 false UT
 false UTC
@@ -850,8 +850,8 @@ false posix/Africa/Timbuktu
 false posix/Africa/Tripoli
 false posix/Africa/Tunis
 false posix/Africa/Windhoek
-true posix/America/Adak
-true posix/America/Anchorage
+false posix/America/Adak
+false posix/America/Anchorage
 false posix/America/Anguilla
 false posix/America/Antigua
 false posix/America/Araguaina
@@ -871,7 +871,7 @@ false posix/America/Argentina/Ushuaia
 false posix/America/Aruba
 true posix/America/Asuncion
 false posix/America/Atikokan
-true posix/America/Atka
+false posix/America/Atka
 false posix/America/Bahia
 false posix/America/Bahia_Banderas
 false posix/America/Barbados
@@ -907,7 +907,7 @@ false posix/America/Dominica
 false posix/America/Edmonton
 false posix/America/Eirunepe
 false posix/America/El_Salvador
-true posix/America/Ensenada
+false posix/America/Ensenada
 false posix/America/Fort_Nelson
 false posix/America/Fort_Wayne
 false posix/America/Fortaleza
@@ -936,14 +936,14 @@ false posix/America/Inuvik
 false posix/America/Iqaluit
 false posix/America/Jamaica
 false posix/America/Jujuy
-true posix/America/Juneau
+false posix/America/Juneau
 false posix/America/Kentucky/Louisville
 false posix/America/Kentucky/Monticello
 false posix/America/Knox_IN
 false posix/America/Kralendijk
 false posix/America/La_Paz
 false posix/America/Lima
-true posix/America/Los_Angeles
+false posix/America/Los_Angeles
 false posix/America/Louisville
 false posix/America/Lower_Princes
 false posix/America/Maceio
@@ -956,7 +956,7 @@ false posix/America/Mazatlan
 false posix/America/Mendoza
 false posix/America/Menominee
 false posix/America/Merida
-true posix/America/Metlakatla
+false posix/America/Metlakatla
 false posix/America/Mexico_City
 false posix/America/Miquelon
 false posix/America/Moncton
@@ -967,7 +967,7 @@ false posix/America/Montserrat
 false posix/America/Nassau
 false posix/America/New_York
 false posix/America/Nipigon
-true posix/America/Nome
+false posix/America/Nome
 false posix/America/Noronha
 false posix/America/North_Dakota/Beulah
 false posix/America/North_Dakota/Center
@@ -991,14 +991,14 @@ false posix/America/Regina
 false posix/America/Resolute
 false posix/America/Rio_Branco
 false posix/America/Rosario
-true posix/America/Santa_Isabel
+false posix/America/Santa_Isabel
 false posix/America/Santarem
 true posix/America/Santiago
 false posix/America/Santo_Domingo
 false posix/America/Sao_Paulo
 false posix/America/Scoresbysund
 false posix/America/Shiprock
-true posix/America/Sitka
+false posix/America/Sitka
 false posix/America/St_Barthelemy
 false posix/America/St_Johns
 false posix/America/St_Kitts
@@ -1009,14 +1009,14 @@ false posix/America/Swift_Current
 false posix/America/Tegucigalpa
 false posix/America/Thule
 false posix/America/Thunder_Bay
-true posix/America/Tijuana
+false posix/America/Tijuana
 false posix/America/Toronto
 false posix/America/Tortola
-true posix/America/Vancouver
+false posix/America/Vancouver
 false posix/America/Virgin
 false posix/America/Whitehorse
 false posix/America/Winnipeg
-true posix/America/Yakutat
+false posix/America/Yakutat
 false posix/America/Yellowknife
 false posix/Antarctica/Casey
 false posix/Antarctica/Davis
@@ -1176,7 +1176,7 @@ false posix/Canada/Central
 false posix/Canada/Eastern
 false posix/Canada/Mountain
 false posix/Canada/Newfoundland
-true posix/Canada/Pacific
+false posix/Canada/Pacific
 false posix/Canada/Saskatchewan
 false posix/Canada/Yukon
 true posix/Chile/Continental
@@ -1317,14 +1317,14 @@ false posix/Libya
 false posix/MET
 false posix/MST
 false posix/MST7MDT
-true posix/Mexico/BajaNorte
+false posix/Mexico/BajaNorte
 false posix/Mexico/BajaSur
 false posix/Mexico/General
 true posix/NZ
 true posix/NZ-CHAT
 false posix/Navajo
 false posix/PRC
-true posix/PST8PDT
+false posix/PST8PDT
 false posix/Pacific/Apia
 true posix/Pacific/Auckland
 false posix/Pacific/Bougainville
@@ -1376,8 +1376,8 @@ false posix/ROK
 false posix/Singapore
 false posix/Turkey
 false posix/UCT
-true posix/US/Alaska
-true posix/US/Aleutian
+false posix/US/Alaska
+false posix/US/Aleutian
 false posix/US/Arizona
 false posix/US/Central
 false posix/US/East-Indiana
@@ -1386,7 +1386,7 @@ false posix/US/Hawaii
 false posix/US/Indiana-Starke
 false posix/US/Michigan
 false posix/US/Mountain
-true posix/US/Pacific
+false posix/US/Pacific
 false posix/US/Samoa
 false posix/UTC
 false posix/Universal
@@ -1407,7 +1407,7 @@ false posixrules
 13219||10|C|G
 13219||-9223372036854775808|U|G
 13219||10|U|G</Grants>
-      <IntrospectionStateNumber>796</IntrospectionStateNumber>
+      <IntrospectionStateNumber>872</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>devfest</OwnerName>
     </database>
@@ -4834,8 +4834,8 @@ false posixrules
     <schema id="265" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>796</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-11-03.08:13:00</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>872</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-11-10.18:16:59</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4864,7 +4864,15 @@ false posixrules
       <StoredType>bigint|0s</StoredType>
       <OwnerName>devfest</OwnerName>
     </sequence>
-    <sequence id="269" parent="265" name="iams_id_seq">
+    <sequence id="269" parent="265" name="events_id_seq">
+      <ObjectId>16492</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>807</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <OwnerName>devfest</OwnerName>
+    </sequence>
+    <sequence id="270" parent="265" name="iams_id_seq">
       <ObjectId>16446</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4872,7 +4880,7 @@ false posixrules
       <StoredType>bigint|0s</StoredType>
       <OwnerName>devfest</OwnerName>
     </sequence>
-    <sequence id="270" parent="265" name="permissions_id_seq">
+    <sequence id="271" parent="265" name="permissions_id_seq">
       <ObjectId>16436</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4880,7 +4888,7 @@ false posixrules
       <StoredType>bigint|0s</StoredType>
       <OwnerName>devfest</OwnerName>
     </sequence>
-    <sequence id="271" parent="265" name="users_id_seq">
+    <sequence id="272" parent="265" name="users_id_seq">
       <ObjectId>16423</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4888,43 +4896,49 @@ false posixrules
       <StoredType>bigint|0s</StoredType>
       <OwnerName>devfest</OwnerName>
     </sequence>
-    <table id="272" parent="265" name="attendees">
+    <table id="273" parent="265" name="attendees">
       <ObjectId>16390</ObjectId>
-      <StateNumber>786</StateNumber>
+      <StateNumber>809</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>devfest</OwnerName>
     </table>
-    <table id="273" parent="265" name="email_templates">
+    <table id="274" parent="265" name="email_templates">
       <ObjectId>16466</ObjectId>
       <StateNumber>776</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>devfest</OwnerName>
     </table>
-    <table id="274" parent="265" name="emails">
+    <table id="275" parent="265" name="emails">
       <ObjectId>16402</ObjectId>
       <StateNumber>753</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>devfest</OwnerName>
     </table>
-    <table id="275" parent="265" name="iams">
+    <table id="276" parent="265" name="events">
+      <ObjectId>16493</ObjectId>
+      <StateNumber>809</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>devfest</OwnerName>
+    </table>
+    <table id="277" parent="265" name="iams">
       <ObjectId>16447</ObjectId>
       <StateNumber>761</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>devfest</OwnerName>
     </table>
-    <table id="276" parent="265" name="permissions">
+    <table id="278" parent="265" name="permissions">
       <ObjectId>16437</ObjectId>
       <StateNumber>761</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>devfest</OwnerName>
     </table>
-    <table id="277" parent="265" name="users">
+    <table id="279" parent="265" name="users">
       <ObjectId>16424</ObjectId>
       <StateNumber>761</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>devfest</OwnerName>
     </table>
-    <column id="278" parent="272" name="id">
+    <column id="280" parent="273" name="id">
       <DefaultExpression>nextval(&apos;attendees_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4933,142 +4947,157 @@ false posixrules
       <SequenceId>16389</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="279" parent="272" name="created_at">
+    <column id="281" parent="273" name="created_at">
       <Position>2</Position>
       <StateNumber>751</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="280" parent="272" name="updated_at">
+    <column id="282" parent="273" name="updated_at">
       <Position>3</Position>
       <StateNumber>751</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="281" parent="272" name="deleted_at">
+    <column id="283" parent="273" name="deleted_at">
       <Position>4</Position>
       <StateNumber>751</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="282" parent="272" name="name">
+    <column id="284" parent="273" name="name">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="283" parent="272" name="birthday">
+    <column id="285" parent="273" name="birthday">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="284" parent="272" name="gender">
+    <column id="286" parent="273" name="gender">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="285" parent="272" name="email">
+    <column id="287" parent="273" name="email">
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="286" parent="272" name="phone">
+    <column id="288" parent="273" name="phone">
       <Position>9</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="287" parent="272" name="sessions">
+    <column id="289" parent="273" name="sessions">
       <NotNull>1</NotNull>
       <Position>10</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="288" parent="272" name="experience">
+    <column id="290" parent="273" name="experience">
       <NotNull>1</NotNull>
       <Position>11</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="289" parent="272" name="job_title">
+    <column id="291" parent="273" name="job_title">
       <NotNull>1</NotNull>
       <Position>12</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="290" parent="272" name="company_email">
+    <column id="292" parent="273" name="company_email">
       <Position>13</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="291" parent="272" name="linked_in">
+    <column id="293" parent="273" name="linked_in">
       <Position>14</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="292" parent="272" name="question">
+    <column id="294" parent="273" name="question">
       <Position>15</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="293" parent="272" name="secret">
+    <column id="295" parent="273" name="secret">
       <NotNull>1</NotNull>
       <Position>16</Position>
       <StateNumber>751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <index id="294" parent="272" name="attendees_pkey">
+    <index id="296" parent="273" name="attendees_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16396</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>786</StateNumber>
+      <StateNumber>798</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="295" parent="272" name="uni_attendees_email">
+    <index id="297" parent="273" name="uni_attendees_email">
       <ColNames>email</ColNames>
       <ObjectId>16398</ObjectId>
-      <StateNumber>786</StateNumber>
+      <StateNumber>798</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="296" parent="272" name="idx_attendees_deleted_at">
+    <index id="298" parent="273" name="uni_attendees_secret">
+      <ColNames>secret</ColNames>
+      <ObjectId>16490</ObjectId>
+      <StateNumber>806</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <index id="299" parent="273" name="idx_attendees_deleted_at">
       <ColNames>deleted_at</ColNames>
       <ObjectId>16400</ObjectId>
-      <StateNumber>786</StateNumber>
+      <StateNumber>798</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="297" parent="272" name="attendees_pkey">
+    <key id="300" parent="273" name="attendees_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16397</ObjectId>
       <Primary>1</Primary>
       <StateNumber>751</StateNumber>
       <UnderlyingIndexId>16396</UnderlyingIndexId>
     </key>
-    <key id="298" parent="272" name="uni_attendees_email">
+    <key id="301" parent="273" name="uni_attendees_email">
       <ObjectId>16399</ObjectId>
       <StateNumber>751</StateNumber>
       <UnderlyingIndexId>16398</UnderlyingIndexId>
     </key>
-    <column id="299" parent="273" name="id">
+    <key id="302" parent="273" name="uni_attendees_secret">
+      <ObjectId>16491</ObjectId>
+      <StateNumber>806</StateNumber>
+      <UnderlyingIndexId>16490</UnderlyingIndexId>
+    </key>
+    <column id="303" parent="274" name="id">
       <DefaultExpression>nextval(&apos;email_templates_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5077,57 +5106,57 @@ false posixrules
       <SequenceId>16465</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="300" parent="273" name="created_at">
+    <column id="304" parent="274" name="created_at">
       <Position>2</Position>
       <StateNumber>776</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="301" parent="273" name="updated_at">
+    <column id="305" parent="274" name="updated_at">
       <Position>3</Position>
       <StateNumber>776</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="302" parent="273" name="deleted_at">
+    <column id="306" parent="274" name="deleted_at">
       <Position>4</Position>
       <StateNumber>776</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="303" parent="273" name="name">
+    <column id="307" parent="274" name="name">
       <Position>5</Position>
       <StateNumber>776</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="304" parent="273" name="from">
+    <column id="308" parent="274" name="from">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>776</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="305" parent="273" name="subject">
+    <column id="309" parent="274" name="subject">
       <Position>7</Position>
       <StateNumber>776</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="306" parent="273" name="body">
+    <column id="310" parent="274" name="body">
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>776</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="307" parent="273" name="json">
+    <column id="311" parent="274" name="json">
       <Position>9</Position>
       <StateNumber>776</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <index id="308" parent="273" name="email_templates_pkey">
+    <index id="312" parent="274" name="email_templates_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16472</ObjectId>
@@ -5136,7 +5165,7 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="309" parent="273" name="uni_email_templates_name">
+    <index id="313" parent="274" name="uni_email_templates_name">
       <ColNames>name</ColNames>
       <ObjectId>16474</ObjectId>
       <StateNumber>776</StateNumber>
@@ -5146,25 +5175,25 @@ false posixrules
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="310" parent="273" name="idx_email_templates_deleted_at">
+    <index id="314" parent="274" name="idx_email_templates_deleted_at">
       <ColNames>deleted_at</ColNames>
       <ObjectId>16476</ObjectId>
       <StateNumber>777</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="311" parent="273" name="email_templates_pkey">
+    <key id="315" parent="274" name="email_templates_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16473</ObjectId>
       <Primary>1</Primary>
       <StateNumber>776</StateNumber>
       <UnderlyingIndexId>16472</UnderlyingIndexId>
     </key>
-    <key id="312" parent="273" name="uni_email_templates_name">
+    <key id="316" parent="274" name="uni_email_templates_name">
       <ObjectId>16475</ObjectId>
       <StateNumber>776</StateNumber>
       <UnderlyingIndexId>16474</UnderlyingIndexId>
     </key>
-    <column id="313" parent="274" name="id">
+    <column id="317" parent="275" name="id">
       <DefaultExpression>nextval(&apos;emails_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5173,78 +5202,78 @@ false posixrules
       <SequenceId>16401</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="314" parent="274" name="created_at">
+    <column id="318" parent="275" name="created_at">
       <Position>2</Position>
       <StateNumber>753</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="315" parent="274" name="updated_at">
+    <column id="319" parent="275" name="updated_at">
       <Position>3</Position>
       <StateNumber>753</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="316" parent="274" name="deleted_at">
+    <column id="320" parent="275" name="deleted_at">
       <Position>4</Position>
       <StateNumber>753</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="317" parent="274" name="from">
+    <column id="321" parent="275" name="from">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>753</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="318" parent="274" name="to">
+    <column id="322" parent="275" name="to">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>753</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="319" parent="274" name="cc">
+    <column id="323" parent="275" name="cc">
       <Position>7</Position>
       <StateNumber>753</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="320" parent="274" name="subject">
+    <column id="324" parent="275" name="subject">
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>753</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="321" parent="274" name="body">
+    <column id="325" parent="275" name="body">
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StateNumber>753</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="322" parent="274" name="status">
+    <column id="326" parent="275" name="status">
       <NotNull>1</NotNull>
       <Position>10</Position>
       <StateNumber>753</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="323" parent="274" name="message_id">
+    <column id="327" parent="275" name="message_id">
       <Position>11</Position>
       <StateNumber>753</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="324" parent="274" name="error">
+    <column id="328" parent="275" name="error">
       <Position>12</Position>
       <StateNumber>753</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <index id="325" parent="274" name="emails_pkey">
+    <index id="329" parent="275" name="emails_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16408</ObjectId>
@@ -5253,20 +5282,83 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="326" parent="274" name="idx_emails_deleted_at">
+    <index id="330" parent="275" name="idx_emails_deleted_at">
       <ColNames>deleted_at</ColNames>
       <ObjectId>16410</ObjectId>
       <StateNumber>754</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="327" parent="274" name="emails_pkey">
+    <key id="331" parent="275" name="emails_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16409</ObjectId>
       <Primary>1</Primary>
       <StateNumber>753</StateNumber>
       <UnderlyingIndexId>16408</UnderlyingIndexId>
     </key>
-    <column id="328" parent="275" name="id">
+    <column id="332" parent="276" name="id">
+      <DefaultExpression>nextval(&apos;events_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>807</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <SequenceId>16492</SequenceId>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="333" parent="276" name="created_at">
+      <Position>2</Position>
+      <StateNumber>807</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="334" parent="276" name="updated_at">
+      <Position>3</Position>
+      <StateNumber>807</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="335" parent="276" name="deleted_at">
+      <Position>4</Position>
+      <StateNumber>807</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="336" parent="276" name="name">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>807</StateNumber>
+      <StoredType>text|0s</StoredType>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="337" parent="276" name="description">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>807</StateNumber>
+      <StoredType>text|0s</StoredType>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="338" parent="276" name="events_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16499</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>807</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="339" parent="276" name="idx_events_deleted_at">
+      <ColNames>deleted_at</ColNames>
+      <ObjectId>16501</ObjectId>
+      <StateNumber>808</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="340" parent="276" name="events_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16500</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>807</StateNumber>
+      <UnderlyingIndexId>16499</UnderlyingIndexId>
+    </key>
+    <column id="341" parent="277" name="id">
       <DefaultExpression>nextval(&apos;iams_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5275,51 +5367,51 @@ false posixrules
       <SequenceId>16446</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="329" parent="275" name="created_at">
+    <column id="342" parent="277" name="created_at">
       <Position>2</Position>
       <StateNumber>761</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="330" parent="275" name="updated_at">
+    <column id="343" parent="277" name="updated_at">
       <Position>3</Position>
       <StateNumber>761</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="331" parent="275" name="deleted_at">
+    <column id="344" parent="277" name="deleted_at">
       <Position>4</Position>
       <StateNumber>761</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="332" parent="275" name="user_id">
+    <column id="345" parent="277" name="user_id">
       <Position>5</Position>
       <StateNumber>761</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="333" parent="275" name="permission_id">
+    <column id="346" parent="277" name="permission_id">
       <Position>6</Position>
       <StateNumber>761</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="334" parent="275" name="fk_iams_user">
+    <foreign-key id="347" parent="277" name="fk_iams_user">
       <ColNames>user_id</ColNames>
       <ObjectId>16453</ObjectId>
       <StateNumber>761</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16424</RefTableId>
     </foreign-key>
-    <foreign-key id="335" parent="275" name="fk_iams_permission">
+    <foreign-key id="348" parent="277" name="fk_iams_permission">
       <ColNames>permission_id</ColNames>
       <ObjectId>16458</ObjectId>
       <StateNumber>761</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16437</RefTableId>
     </foreign-key>
-    <index id="336" parent="275" name="iams_pkey">
+    <index id="349" parent="277" name="iams_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16451</ObjectId>
@@ -5328,20 +5420,20 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="337" parent="275" name="idx_iams_deleted_at">
+    <index id="350" parent="277" name="idx_iams_deleted_at">
       <ColNames>deleted_at</ColNames>
       <ObjectId>16463</ObjectId>
       <StateNumber>762</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="338" parent="275" name="iams_pkey">
+    <key id="351" parent="277" name="iams_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16452</ObjectId>
       <Primary>1</Primary>
       <StateNumber>761</StateNumber>
       <UnderlyingIndexId>16451</UnderlyingIndexId>
     </key>
-    <column id="339" parent="276" name="id">
+    <column id="352" parent="278" name="id">
       <DefaultExpression>nextval(&apos;permissions_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5350,38 +5442,38 @@ false posixrules
       <SequenceId>16436</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="340" parent="276" name="created_at">
+    <column id="353" parent="278" name="created_at">
       <Position>2</Position>
       <StateNumber>759</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="341" parent="276" name="updated_at">
+    <column id="354" parent="278" name="updated_at">
       <Position>3</Position>
       <StateNumber>759</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="342" parent="276" name="deleted_at">
+    <column id="355" parent="278" name="deleted_at">
       <Position>4</Position>
       <StateNumber>759</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="343" parent="276" name="name">
+    <column id="356" parent="278" name="name">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>759</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="344" parent="276" name="value">
+    <column id="357" parent="278" name="value">
       <Position>6</Position>
       <StateNumber>759</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <index id="345" parent="276" name="permissions_pkey">
+    <index id="358" parent="278" name="permissions_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16443</ObjectId>
@@ -5390,20 +5482,20 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="346" parent="276" name="idx_permissions_deleted_at">
+    <index id="359" parent="278" name="idx_permissions_deleted_at">
       <ColNames>deleted_at</ColNames>
       <ObjectId>16445</ObjectId>
       <StateNumber>760</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="347" parent="276" name="permissions_pkey">
+    <key id="360" parent="278" name="permissions_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16444</ObjectId>
       <Primary>1</Primary>
       <StateNumber>759</StateNumber>
       <UnderlyingIndexId>16443</UnderlyingIndexId>
     </key>
-    <column id="348" parent="277" name="id">
+    <column id="361" parent="279" name="id">
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5412,31 +5504,31 @@ false posixrules
       <SequenceId>16423</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="349" parent="277" name="created_at">
+    <column id="362" parent="279" name="created_at">
       <Position>2</Position>
       <StateNumber>757</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="350" parent="277" name="updated_at">
+    <column id="363" parent="279" name="updated_at">
       <Position>3</Position>
       <StateNumber>757</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="351" parent="277" name="deleted_at">
+    <column id="364" parent="279" name="deleted_at">
       <Position>4</Position>
       <StateNumber>757</StateNumber>
       <StoredType>timestamp with time zone|0s</StoredType>
       <TypeId>1184</TypeId>
     </column>
-    <column id="352" parent="277" name="firebase_uid">
+    <column id="365" parent="279" name="firebase_uid">
       <Position>5</Position>
       <StateNumber>757</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="353" parent="277" name="status">
+    <column id="366" parent="279" name="status">
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
@@ -5444,7 +5536,7 @@ false posixrules
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <index id="354" parent="277" name="users_pkey">
+    <index id="367" parent="279" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16431</ObjectId>
@@ -5453,7 +5545,7 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="355" parent="277" name="uni_users_firebase_uid">
+    <index id="368" parent="279" name="uni_users_firebase_uid">
       <ColNames>firebase_uid</ColNames>
       <ObjectId>16433</ObjectId>
       <StateNumber>757</StateNumber>
@@ -5463,20 +5555,20 @@ false posixrules
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="356" parent="277" name="idx_users_deleted_at">
+    <index id="369" parent="279" name="idx_users_deleted_at">
       <ColNames>deleted_at</ColNames>
       <ObjectId>16435</ObjectId>
       <StateNumber>758</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="357" parent="277" name="users_pkey">
+    <key id="370" parent="279" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16432</ObjectId>
       <Primary>1</Primary>
       <StateNumber>757</StateNumber>
       <UnderlyingIndexId>16431</UnderlyingIndexId>
     </key>
-    <key id="358" parent="277" name="uni_users_firebase_uid">
+    <key id="371" parent="279" name="uni_users_firebase_uid">
       <ObjectId>16434</ObjectId>
       <StateNumber>757</StateNumber>
       <UnderlyingIndexId>16433</UnderlyingIndexId>

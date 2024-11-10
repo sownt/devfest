@@ -1,6 +1,9 @@
 package main
 
-import "github.com/go-playground/validator/v10"
+import (
+	"github.com/go-playground/validator/v10"
+	"github.com/google/uuid"
+)
 
 func GetErrorMessage(e validator.FieldError) string {
 	switch e.Tag() {
@@ -15,4 +18,8 @@ func GetErrorMessage(e validator.FieldError) string {
 	default:
 		return "Invalid value"
 	}
+}
+
+func NewSecretCode(len int) string {
+	return uuid.New().String()[:len]
 }

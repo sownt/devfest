@@ -1,20 +1,9 @@
 package main
 
-import "gorm.io/gorm"
-
-type AttendeeForm struct {
-	Name         string `form:"name" binding:"required"`
-	Birthday     string `form:"birthday" binding:"required"`
-	Gender       string `form:"gender" binding:"required"`
-	Email        string `form:"email" binding:"required,email"`
-	Phone        string `form:"phone,omitempty"`
-	Sessions     string `form:"sessions" binding:"required"`
-	Experience   string `form:"experience" binding:"required"`
-	JobTitle     string `form:"job_title" binding:"required"`
-	CompanyEmail string `form:"company_email,omitempty"`
-	LinkedIn     string `form:"linkedin,omitempty"`
-	Question     string `form:"question,omitempty"`
-}
+import (
+	"gorm.io/gorm"
+	"time"
+)
 
 type Attendee struct {
 	gorm.Model
@@ -29,7 +18,7 @@ type Attendee struct {
 	CompanyEmail string `gorm:"nullable"`
 	LinkedIn     string `gorm:"nullable"`
 	Question     string `gorm:"nullable"`
-	Secret       string `gorm:"not null"`
+	Secret       string `gorm:"not null;unique"`
 }
 
 type Email struct {
@@ -71,4 +60,33 @@ type Iam struct {
 	User         User
 	PermissionID int
 	Permission   Permission
+}
+
+type Event struct {
+	gorm.Model
+	Name        string `gorm:"not null"`
+	Description string `gorm:"not null"`
+}
+
+type Ticket struct {
+	gorm.Model
+	AttendeeID int
+	Attendee   Attendee `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
+	EventID    int
+	Event      Event     `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
+	Used       time.Time `gorm:"nullable"`
+	Secret     string    `gorm:"not null;unique"`
+}
+
+type Log struct {
+	gorm.Model
+	Type        string `gorm:"not null"`
+	Target      string `gorm:"not null"`
+	Description string `gorm:"not null"`
+	Author      string `gorm:"not null"`
+}
+
+type Pagination struct {
+	Page     int `form:"page"`
+	PageSize int `form:"pageSize"`
 }

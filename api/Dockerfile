@@ -1,4 +1,4 @@
-FROM golang:bullseye AS api-builder
+FROM golang:1.23.1 AS api-builder
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
