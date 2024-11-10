@@ -39,7 +39,7 @@ services:
     ports:
       - ${EXPOSE_API}:8080
     depends_on:
-      mysql:
+      postgres:
         condition: service_healthy
     environment:
       - DB_HOST=db
