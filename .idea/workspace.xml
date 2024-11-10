@@ -4,48 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fcf46ed-c770-4748-90d7-050731a849e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build_admin_api.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6b175c14-f9fd-44a8-bfd8-ece87da342ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6b175c14-f9fd-44a8-bfd8-ece87da342ea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6b175c14-f9fd-44a8-bfd8-ece87da342ea/storage_v2/_src_/database/devfest.9Vj3XA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6b175c14-f9fd-44a8-bfd8-ece87da342ea/storage_v2/_src_/database/devfest.9Vj3XA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/crypto.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/database.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/docs/docs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/docs/swagger.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/docs/swagger.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/email.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/firebase.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/middleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/model.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/route.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_api/validator.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/database.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/route.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/validator.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reports/_components/Summary.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reports/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reports/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
-    </list>
+    <list default="true" id="2fcf46ed-c770-4748-90d7-050731a849e3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

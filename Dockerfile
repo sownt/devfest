@@ -10,7 +10,7 @@ CMD ["npm", "run", "dev"]
 FROM node:lts AS app-prod-builder
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install --production
+RUN npm install
 COPY . .
 RUN npm run build
 
