@@ -21,7 +21,7 @@ func SetupPostgres() *gorm.DB {
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_NAME"),
-		os.Getenv("SERVICE_PORT"),
+		os.Getenv("DB_PORT"),
 	)
 	_db, err := gorm.Open(
 		postgres.New(
