@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"os"
+	"strings"
 )
 
 func RequiredLogin() gin.HandlerFunc {
@@ -16,7 +17,7 @@ func RequiredLogin() gin.HandlerFunc {
 		session, _ := c.Cookie("session")
 		token, err := client.VerifySessionCookieAndCheckRevoked(c, session)
 		if err != nil {
-			c.SetCookie("session", "", -1, "/", os.Getenv("NEXT_PUBLIC_BASE_URL"), false, false)
+			c.SetCookie("session", "", -1, "/", strings.TrimPrefix(os.Getenv("NEXT_PUBLIC_BASE_URL"), "https://"), false, false)
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
 			return
 		}
