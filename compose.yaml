@@ -42,6 +42,8 @@ services:
   web:
     image: asia-southeast1-docker.pkg.dev/devfest-438523/sownt/devfest_web:latest
     container_name: devfest_web
+    restart: always
+    env_file: .env
     ports:
       - ${EXPOSE_APP}:3000
     volumes:

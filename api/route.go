@@ -88,7 +88,7 @@ func Attend(c *gin.Context) {
 		fmt.Println(err.Error())
 	}
 	email := Email{
-		From:    os.Getenv("EMAIL_FROM"),
+		From:    et.From,
 		To:      attendee.Email,
 		Subject: et.Subject,
 		Body:    body,

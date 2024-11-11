@@ -47,6 +47,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: api/
+          target: api
           push: ${{ github.event_name != 'pull_request' }}
           tags: asia-southeast1-docker.pkg.dev/devfest-438523/sownt/devfest_api:latest
           cache-from: type=gha
