@@ -1,7 +1,7 @@
 "use client"
+import { centerText } from "@/misc/tracker";
 import {Scanner} from "@yudiel/react-qr-scanner";
 import axios from "axios";
-import { centerText } from "./tracker";
 
 export default function CheckInPage() {
     return (
