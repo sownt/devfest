@@ -46,8 +46,6 @@ services:
     env_file: .env
     ports:
       - ${EXPOSE_APP}:3000
-    volumes:
-      - .env:/app/.env
     environment:
       NODE_ENV: production
     command: npm start
