@@ -1,8 +1,5 @@
 services:
   postgres:
-    profiles:
-      - dev
-      - prod
     image: postgres
     container_name: devfest_db
     restart: always
@@ -23,19 +20,10 @@ services:
       retries: 10
   
   api:
-    profiles:
-      - dev
-      - prod
-    build:
-      context: api/
-      target: api
-    container_name: api
+    image: asia-southeast1-docker.pkg.dev/devfest-438523/sownt/devfest_api:latest
+    container_name: devfest_api
     restart: always
     env_file: .env
-    volumes:
-      - ${AWS_CREDENTIAL}:/root/.aws
-      - ./api/templates:/app/templates
-      - .env:/app/.env
     ports:
       - ${EXPOSE_API}:8080
     depends_on:
@@ -49,29 +37,9 @@ services:
       - SERVICE_PORT=8080
       - GO_ENV=production
 
-  app-dev:
-    profiles:
-      - dev
-    container_name: app
-    build:
-      context: .
-      target: app-dev
-    volumes:
-      - .:/app
-      - /app/node_modules
-    ports:
-      - ${EXPOSE_APP}:3000
-    environment:
-      NODE_ENV: development
-    command: npm run dev
-
-  app-prod:
-    profiles:
-      - prod
-    container_name: app
-    build:
-      context: .
-      target: app-prod
+  web:
+    image: asia-southeast1-docker.pkg.dev/devfest-438523/sownt/devfest_web:latest
+    container_name: devfest_web
     ports:
       - ${EXPOSE_APP}:3000
     environment:
