@@ -46,6 +46,12 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: sownt/devfest_web
+      
+      - name: Create .env
+        env:
+          DOTENV: ${{ vars.DOTENV }}
+        run: |
+          echo "$DOTENV" > .env
 
       - name: Build and push Docker image
         id: build-and-push
