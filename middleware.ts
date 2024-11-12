@@ -9,17 +9,12 @@ export async function middleware(request: NextRequest) {
     if (isAdminRoute && !sessionCookie) {
         const url = request.nextUrl.clone();
         url.pathname = '/login';
-        url.searchParams.set('redirect', request.nextUrl.href);
         return NextResponse.redirect(url);
     }
 
     if (isLoginRoute && sessionCookie) {
-        const redirectUrl = request.nextUrl.searchParams.get('redirect');
-        if (redirectUrl) {
-            return NextResponse.redirect(redirectUrl)
-        }
         const url = request.nextUrl.clone();
-        url.pathname = '/';
+        url.pathname = '/admin/dashboard';
         return NextResponse.redirect(url);
     }
 
