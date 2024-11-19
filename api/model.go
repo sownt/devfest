@@ -62,7 +62,7 @@ type Ticket struct {
 	EventID    int
 	Event      Event     `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 	Used       time.Time `gorm:"nullable"`
-	Secret     string    `gorm:"not null;unique"`
+	Secret     string    `gorm:"not null;unique" json:"secret"`
 }
 
 type Credential struct {
