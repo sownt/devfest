@@ -46,20 +46,7 @@ type User struct {
 	gorm.Model
 	FirebaseUid string `gorm:"unique"`
 	Status      bool   `gorm:"not null;default:false"`
-}
-
-type Permission struct {
-	gorm.Model
-	Name  string `gorm:"not null"`
-	Value string `gorm:"not null, unique"`
-}
-
-type Iam struct {
-	gorm.Model
-	UserID       int
-	User         User
-	PermissionID int
-	Permission   Permission
+	Email       string `gorm:"not null;unique"`
 }
 
 type Event struct {
@@ -78,15 +65,15 @@ type Ticket struct {
 	Secret     string    `gorm:"not null;unique"`
 }
 
+type Credential struct {
+	gorm.Model
+	Key string `gorm:"not null;unique"`
+}
+
 type Log struct {
 	gorm.Model
 	Type        string `gorm:"not null"`
 	Target      string `gorm:"not null"`
 	Description string `gorm:"not null"`
 	Author      string `gorm:"not null"`
-}
-
-type Pagination struct {
-	Page     int `form:"page"`
-	PageSize int `form:"pageSize"`
 }

@@ -34,10 +34,6 @@ func SetupPostgres() *gorm.DB {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	err = _db.AutoMigrate(&Attendee{}, &Email{}, &EmailTemplate{}, &User{}, &Permission{}, &Iam{}, &Event{}, &Ticket{})
-	if err != nil {
-		panic("failed to migrate database")
-	}
 	sqlDB, err := _db.DB()
 	if err != nil {
 		panic(err)
@@ -46,4 +42,11 @@ func SetupPostgres() *gorm.DB {
 	sqlDB.SetMaxOpenConns(100)
 	sqlDB.SetConnMaxLifetime(time.Second * 10)
 	return _db
+}
+
+func InitDb() {
+	err := GetDb().AutoMigrate(&Attendee{}, &Email{}, &EmailTemplate{}, &User{}, &Event{}, &Ticket{}, &Credential{}, &Log{})
+	if err != nil {
+		panic("failed to migrate database")
+	}
 }

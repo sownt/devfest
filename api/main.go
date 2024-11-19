@@ -36,6 +36,9 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
+	// Setup db
+	InitDb()
+
 	// Setup gin
 	r := gin.Default()
 	r.Use(gin.Recovery())
@@ -54,23 +57,13 @@ func main() {
 	{
 		authorized.GET("/admin/ping", Ping)
 		authorized.POST("/logout", Logout)
-		authorized.POST("/ticket", CreateTicket)
 		authorized.GET("/check-in", CheckInEvent)
-		analytics := authorized.Group("/analytics")
-		{
-			analytics.GET("/summary", Summary)
-			analytics.GET("/gender", Gender)
-			analytics.GET("/birthday", Birthday)
-			analytics.GET("/experience", Experience)
-		}
 	}
 
 	attendee := r.Group("/attendee")
 	{
 		attendee.POST("/email", CheckEmail)
 		attendee.POST("/attend", Attend)
-		attendee.GET("/ticket", GetTicketDetail)
-		attendee.GET("/all", GetAttendees)
 	}
 
 	// Swagger
