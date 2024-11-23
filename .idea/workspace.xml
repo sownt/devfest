@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fcf46ed-c770-4748-90d7-050731a849e3" name="Changes" comment="" />
+    <list default="true" id="2fcf46ed-c770-4748-90d7-050731a849e3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +41,7 @@
     "DefaultGoTemplateProperty": "Go File",
     "Go Build.go build devfest_api.executor": "Run",
     "Go Build.go build registration.executor": "Run",
+    "Go Build.go build scripts.executor": "Run",
     "Node.js.middleware.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -75,7 +79,7 @@
       <recent name="$PROJECT_DIR$/api" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build devfest_api">
     <configuration name="go build devfest_api" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="devfest" />
       <working_directory value="$PROJECT_DIR$" />
@@ -87,12 +91,26 @@
         <option name="GoBeforeRunTask" command="clean" />
       </method>
     </configuration>
+    <configuration name="go build scripts" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="devfest" />
+      <working_directory value="$PROJECT_DIR$/scripts" />
+      <kind value="PACKAGE" />
+      <package value="scripts" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/scripts/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build scripts" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

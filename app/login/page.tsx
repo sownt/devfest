@@ -28,7 +28,7 @@ export default function LoginPage() {
           { withCredentials: true }
         );
         if (res.status === 200) {
-          router.push("/admin");
+          router.push("/check-in");
         }
       }
     } finally {
