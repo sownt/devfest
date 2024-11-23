@@ -55,14 +55,14 @@ func main() {
 	r.GET("/ping", Ping)
 	r.GET("/qr/:id", GenerateQrTicket)
 	r.POST("/login", Login)
-	r.GET("/check-in/:id", CheckInEvent)
+	//r.GET("/check-in/:id", CheckInEvent)
 
 	authorized := r.Group("/", RequiredLogin())
 	{
 		authorized.GET("/admin/ping", Ping)
 		authorized.POST("/logout", Logout)
 		authorized.GET("/ticket/:id", GetTicket)
-		//authorized.GET("/check-in/:id", CheckInEvent)
+		authorized.GET("/check-in/:id", CheckInEvent)
 	}
 
 	attendee := r.Group("/attendee")

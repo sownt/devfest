@@ -31,6 +31,7 @@ services:
         condition: service_healthy
     volumes:
       - .env:/app/.env
+      - serviceAccountKey.json:/app/serviceAccountKey.json
     environment:
       - DB_HOST=postgres
       - DB_USER=${POSTGRES_USER}
