@@ -3,6 +3,7 @@
     "type": "EmailLayout",
     "data": {
       "backdropColor": "#FFFFFF",
+      "borderColor": null,
       "borderRadius": 0,
       "canvasColor": "#FFFFFF",
       "textColor": "#262626",
@@ -11,6 +12,7 @@
         "block-1726669752579",
         "block-1726669783613",
         "block-1726669881530",
+        "block-1732021819980",
         "block-1728843405221",
         "block-1726680850612",
         "block-1726680878851",
@@ -71,7 +73,7 @@
       },
       "props": {
         "markdown": true,
-        "text": "Cảm ơn bạn đã đăng ký tham gia ngày hội công nghệ <b>Google Cloud DevFest Hanoi 2024</b>. GDG Cloud Hanoi rất trân trọng sự quan tâm của bạn dành cho sự kiện này."
+        "text": "Cảm ơn bạn đã đăng ký tham gia ngày hội công nghệ <b>Google Cloud DevFest Hanoi 2024</b>. GDG Cloud Hanoi xin gửi tới bạn vé tham dự {{if .EventName}}{{.EventName}}{{end}}."
       }
     }
   },
@@ -430,6 +432,27 @@
       "props": {
         "markdown": true,
         "text": "Do giới hạn về số lượng người tham gia, BTC sẽ ưu tiên chọn lựa những đơn đăng ký phù hợp nhất để đảm bảo sự kiện diễn ra thành công và mang lại trải nghiệm tốt nhất cho tất cả mọi người. Những tech-lovers phù hợp sẽ nhận được _<span style=\"color:red\">email xác nhận đăng ký thành công</span>_ kèm theo vé tham dự và thông tin chi tiết về chương trình trong thời gian tới."
+      }
+    }
+  },
+  "block-1732021819980": {
+    "type": "Image",
+    "data": {
+      "style": {
+        "padding": {
+          "top": 48,
+          "bottom": 48,
+          "right": 48,
+          "left": 48
+        },
+        "backgroundColor": null,
+        "textAlign": "center"
+      },
+      "props": {
+        "url": "data:image/webp;base64,{{if .Qr}}{{.Qr}}{{end}}",
+        "alt": "Sample product",
+        "linkHref": null,
+        "contentAlignment": "middle"
       }
     }
   }

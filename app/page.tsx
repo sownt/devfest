@@ -20,6 +20,7 @@ import RandomSVGBackground from "@/components/Background/Background";
 import PersonalCard from "@/components/PersonalCard/PersonalCard";
 import { ConfigProvider, theme } from "antd";
 import { useTranslations } from "next-intl";
+import SpeakerCard from "@/components/PersonalCard/SpeakerCard";
 
 export default function Home() {
   const t = useTranslations();
@@ -27,9 +28,8 @@ export default function Home() {
   const navItems = [
     { label: t("Home"), target: "home" },
     { label: t("About"), target: "about" },
-    { label: t("Gallery"), target: "gallery" },
-    // { label: t("Venue"), target: "venue" },
-    { label: t("Team"), target: "team" },
+    { label: t("Speakers"), target: "speakers" },
+    { label: t("Agenda"), target: "agenda" },
   ];
 
   const actionItem = { label: "Get ticket", target: "ticket" };
@@ -100,6 +100,84 @@ export default function Home() {
     { id: 2, title: "9", description: "Sessions" },
     { id: 3, title: "5", description: "Sponsorship\npartners" },
     { id: 4, title: "10", description: "Tech experts\n(Googlers, GDEs)" },
+  ];
+
+  const speakers = [
+    {
+      name: "Nhi Nguyễn",
+      title: "Community Manager\n@ Google Developer Relations SEA",
+      avatar: "/speakers/nhi_nguyen.png",
+    },
+    {
+      name: "Võ Tự Đức",
+      title: "CEO @ 2VO\nGoogle Developer Expert @ Google Workspace",
+      avatar: "/speakers/vo_tu_duc.png",
+    },
+    {
+      name: "Tú Phạm",
+      title: "CEO @ AdFlex\nGoogle Developer Expert @ Google Cloud Platform",
+      avatar: "/speakers/tu_pham.png",
+    },
+    {
+      name: "Trường Nguyễn",
+      title: "Founder @ GDG Cloud Hanoi\nGoogle Developer Expert @ Google Cloud Platform",
+      avatar: "/speakers/truong_nguyen.png",
+    },
+    {
+      name: "Hoan Lê",
+      title: "Director of Corporate Customer @ Cloud Ace",
+      avatar: "/speakers/hoan_le.png",
+    },
+    {
+      name: "Nguyễn Xuân Hà",
+      title: "Data Analytics Specialist Lead @ Google Cloud Vietnam",
+      avatar: "/speakers/nguyen_xuan_ha.png",
+    },
+    {
+      name: "Huy Đặng",
+      title: "Co-Lead @ GDG Cloud Hanoi\nGoogle Developer Expert @ Google Cloud Platform",
+      avatar: "/speakers/huy_dang.png",
+    },
+    {
+      name: "Tuấn Vũ",
+      title: "Solution Architect @ Cloud AZ",
+      avatar: "/speakers/tuan_vu.png",
+    },
+    {
+      name: "Tăng Trần",
+      title: "Cloud Engineer @ BIDV",
+      avatar: "/speakers/tang_tran.png",
+    },
+    {
+      name: "Trần Minh Tú",
+      title: "Data Scientist AAI-DnA @ Techcombank",
+      avatar: "/speakers/tran_minh_tu.png",
+    },
+    {
+      name: "Thái Hồ",
+      title: "Solution Consultant Presales @ CMC Telecom",
+      avatar: "/speakers/thai_ho.png",
+    },
+    {
+      name: "Violet Đặng",
+      title: "Customer Engineer @ Google",
+      avatar: "/speakers/violet_dang.png",
+    },
+    {
+      name: "Lê Thị Bích Thuận",
+      title: "Udemy Instructor Founder & CEO @ UDECAREER",
+      avatar: "/speakers/le_thi_bich_thuan.png",
+    },
+    {
+      name: "Cleo Credo",
+      title: "Digital MSME Engineering Lead Google Developer Expert @ Firebase",
+      avatar: "/speakers/cleo.png",
+    },
+    {
+      name: "Vũ Minh Hoàng",
+      title: "Senior Data Scientist @ Viettel Solutions\nLecturer @ Thang Long University",
+      avatar: "/speakers/vu_minh_hoang.png",
+    },
   ];
 
   const teams = [
@@ -249,6 +327,39 @@ export default function Home() {
                 googleMapApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
               />
             )}
+          </div>
+          <div id="speakers" className="mx-auto max-w-6xl pt-24 px-4">
+            <div className="mx-auto max-w-6xl mb-8 px-4">
+              <h1 className="text-3xl font-bold">Speakers</h1>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 content-center">
+              {speakers.map((item, index) => (
+                <SpeakerCard
+                  key={index}
+                  name={item.name}
+                  title={item.title}
+                  avatar={item.avatar}
+                />
+              ))}
+            </div>
+          </div>
+          <div id="agenda" className="mx-auto max-w-6xl pt-24 px-4">
+            <div className="w-full">
+              <Image
+                src={"/agenda.png"}
+                alt=""
+                width={3840}
+                height={4122}
+                className="hidden sm:block w-full h-auto"
+              />
+              <Image
+                src={"/agenda_mobile.png"}
+                alt=""
+                width={1456}
+                height={8146}
+                className="sm:hidden w-full h-auto"
+              />
+            </div>
           </div>
           <div id="gallery" className="pt-24">
             <div className="mx-auto max-w-6xl mb-8 px-4">

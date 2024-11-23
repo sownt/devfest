@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/base64"
 	"errors"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -18,14 +17,18 @@ func Ping(c *gin.Context) {
 	})
 }
 
-func GenerateQr(c *gin.Context) {
-	content := c.Query("content")
-	var png []byte
-	png, _ = qrcode.Encode(content, qrcode.Medium, 512)
-	imgBase64Str := base64.StdEncoding.EncodeToString(png)
-	c.JSON(http.StatusOK, gin.H{
-		"image": imgBase64Str,
-	})
+func GenerateQrTicket(c *gin.Context) {
+	id := c.Param("id")
+	if id == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "content query parameter is required"})
+		return
+	}
+	png, err := qrcode.Encode(id, qrcode.Medium, 512)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to generate QR code"})
+		return
+	}
+	c.Data(http.StatusOK, "image/png", png)
 }
 
 func CheckEmail(c *gin.Context) {
@@ -76,7 +79,6 @@ func Attend(c *gin.Context) {
 		CompanyEmail: attendeeForm.CompanyEmail,
 		LinkedIn:     attendeeForm.LinkedIn,
 		Question:     attendeeForm.Question,
-		Secret:       NewSecretCode(6),
 	}
 	var et EmailTemplate
 	GetDb().First(&et, "name = ?", "new_account_email")
@@ -137,43 +139,59 @@ func Logout(c *gin.Context) {
 	c.SetCookie("session", "", -1, "/", os.Getenv("BASE_URL"), false, false)
 }
 
-func GetTicketDetail(c *gin.Context) {
-	id := c.Query("id")
+func GetTicket(c *gin.Context) {
+	id := c.Param("id")
 	if id == "" {
 		c.JSON(http.StatusBadRequest, gin.H{})
+		return
 	}
-	var checkin Ticket
-	GetDb().Where("secret = ?", id).First(&checkin)
-	if checkin.ID == 0 {
+	var ticket Ticket
+	GetDb().Where("secret = ?", id).First(&ticket)
+	if ticket.ID == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Ticket not found.",
 		})
+		return
 	}
-	c.JSON(http.StatusOK, checkin)
+	var attendee Attendee
+	GetDb().First(&attendee, "id = ?", ticket.AttendeeID)
+	if attendee.ID == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{})
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"name":         attendee.Name,
+		"email":        attendee.Email,
+		"birthday":     attendee.Birthday,
+		"experience":   attendee.Experience,
+		"jobTitle":     attendee.JobTitle,
+		"companyEmail": attendee.CompanyEmail,
+		"linkedIn":     attendee.LinkedIn,
+		"used":         ticket.Used,
+	})
 }
 
 func CheckInEvent(c *gin.Context) {
-	id := c.Query("id")
+	id := c.Param("id")
 	if id == "" {
 		c.JSON(http.StatusBadRequest, gin.H{})
 		return
 	}
-	var checkin Ticket
-	GetDb().Where("secret = ?", id).First(&checkin)
-	if checkin.ID == 0 {
+	var ticket Ticket
+	GetDb().Where("secret = ?", id).First(&ticket)
+	if ticket.ID == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Ticket not found.",
 		})
 		return
 	}
-	if !checkin.Used.IsZero() {
+	if !ticket.Used.IsZero() {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Already checked in.",
 		})
 		return
 	}
-	checkin.Used = time.Now()
-	GetDb().Save(&checkin)
+	ticket.Used = time.Now()
+	GetDb().Save(&ticket)
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Check-in successfully.",
 	})

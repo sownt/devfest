@@ -39,6 +39,9 @@ func main() {
 	// Setup db
 	InitDb()
 
+	// Setup Firebase
+	InitFirebase()
+
 	// Setup gin
 	r := gin.Default()
 	r.Use(gin.Recovery())
@@ -50,14 +53,16 @@ func main() {
 
 	// Routes
 	r.GET("/ping", Ping)
-	r.GET("/qr", GenerateQr)
+	r.GET("/qr/:id", GenerateQrTicket)
 	r.POST("/login", Login)
+	r.GET("/check-in/:id", CheckInEvent)
 
 	authorized := r.Group("/", RequiredLogin())
 	{
 		authorized.GET("/admin/ping", Ping)
 		authorized.POST("/logout", Logout)
-		authorized.GET("/check-in", CheckInEvent)
+		authorized.GET("/ticket/:id", GetTicket)
+		//authorized.GET("/check-in/:id", CheckInEvent)
 	}
 
 	attendee := r.Group("/attendee")

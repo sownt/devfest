@@ -2,50 +2,28 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	firebase "firebase.google.com/go"
 	"fmt"
 	"google.golang.org/api/option"
 	"gorm.io/gorm/clause"
 	"log"
 	"net/http"
-	"os"
 )
 
 func GetFirebase() *firebase.App {
 	if firebaseApp == nil {
-		f, err := InitFirebase()
-		if err != nil {
-			panic("failed to init firebase")
-		}
-		firebaseApp = f
+		InitFirebase()
 	}
 	return firebaseApp
 }
 
-func InitFirebase() (*firebase.App, error) {
-	serviceAccountKey, err := json.Marshal(map[string]interface{}{
-		"type":                        os.Getenv("SAK_TYPE"),
-		"project_id":                  os.Getenv("SAK_PROJECT_ID"),
-		"private_key_id":              os.Getenv("SAK_PRIVATE_KEY_ID"),
-		"private_key":                 os.Getenv("SAK_PRIVATE_KEY"),
-		"client_email":                os.Getenv("SAK_CLIENT_EMAIL"),
-		"client_id":                   os.Getenv("SAK_CLIENT_ID"),
-		"auth_uri":                    os.Getenv("SAK_AUTH_URI"),
-		"token_uri":                   os.Getenv("SAK_TOKEN_URI"),
-		"auth_provider_x509_cert_url": os.Getenv("SAK_AUTH_PROVIDER_X509_CERT_URL"),
-		"client_x509_cert_url":        os.Getenv("SAK_CAT_CLIENT_X509_CERT_URL"),
-		"universe_domain":             os.Getenv("SAK_UNIVERSE_DOMAIN"),
-	})
-	if err != nil {
-		return nil, err
-	}
-	opt := option.WithCredentialsJSON(serviceAccountKey)
+func InitFirebase() {
+	opt := option.WithCredentialsFile("serviceAccountKey.json")
 	app, err := firebase.NewApp(context.Background(), nil, opt)
 	if err != nil {
-		return nil, fmt.Errorf("error initializing app: %v", err)
+		panic(fmt.Errorf("error initializing app: %v", err))
 	}
-	return app, nil
+	firebaseApp = app
 }
 
 func VerifyToken(ctx context.Context, idToken string) (string, error) {
@@ -57,7 +35,12 @@ func VerifyToken(ctx context.Context, idToken string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("error verifying ID token: %v\n", err)
 	}
-	GetDb().Clauses(clause.OnConflict{DoNothing: true}).Create(&User{FirebaseUid: token.UID})
+	GetDb().Clauses(clause.OnConflict{DoNothing: true}).Create(&User{
+		FirebaseUid: token.UID,
+		Email:       token.Claims["email"].(string),
+		Name:        token.Claims["name"].(string),
+		Avatar:      token.Claims["picture"].(string),
+	})
 	cookie, err := client.SessionCookie(ctx, idToken, UserSessionExpiresIn)
 	if err != nil {
 		return "", fmt.Errorf("Failed to create a session cookie %v\n", http.StatusInternalServerError)
