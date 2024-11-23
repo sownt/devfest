@@ -23,15 +23,6 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(url);
     }
 
-    if (request.nextUrl.pathname === '/admin') {
-        const url = request.nextUrl.clone();
-        const redirectUrl = url.searchParams.get('redirect');
-        if (redirectUrl) {
-            return NextResponse.redirect(redirectUrl)
-        }
-        return NextResponse.redirect(url)
-    }
-
     return NextResponse.next();
 }
 
