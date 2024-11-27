@@ -1,11 +1,16 @@
 name: Build Go App
 
 on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'api/'
   push:
     branches:
       - main
     paths:
-      - 'web/'
+      - 'api/'
 
 jobs:
   build:

@@ -1,12 +1,20 @@
 name: Build Next App
 
 on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'api/'
+      - 'admin_api/'
+      - 'scripts/'
   push:
     branches:
       - main
     paths-ignore:
       - 'api/'
       - 'admin_api/'
+      - 'scripts/'
 
 jobs:
   build:
