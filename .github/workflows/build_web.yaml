@@ -1,8 +1,9 @@
-name: Build Web Docker Image
+name: Build Next App
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
     paths-ignore:
       - 'api/'
       - 'admin_api/'

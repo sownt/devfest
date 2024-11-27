@@ -1,8 +1,9 @@
-name: Build API Docker Image
+name: Build Go App
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
     paths:
       - 'web/'
 
