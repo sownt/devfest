@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'api/'
+      - 'web/'
 
 jobs:
   build:
