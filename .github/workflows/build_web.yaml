@@ -5,16 +5,16 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'api/'
-      - 'fastapi/'
-      - 'scripts/'
+      - 'api/**'
+      - 'fastapi/**'
+      - 'scripts/**'
   push:
     branches:
       - main
     paths-ignore:
-      - 'api/'
-      - 'fastapi/'
-      - 'scripts/'
+      - 'api/**'
+      - 'fastapi/**'
+      - 'scripts/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

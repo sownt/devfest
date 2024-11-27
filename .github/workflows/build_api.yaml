@@ -5,19 +5,19 @@ on:
     branches:
       - main
     paths:
-      - 'api/'
-      - '.github/workflows'
+      - 'api/**'
+      - '.github/workflows/**'
   push:
     branches:
       - main
     paths:
-      - 'api/'
-      - '.github/workflows'
+      - 'api/**'
+      - '.github/workflows/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
