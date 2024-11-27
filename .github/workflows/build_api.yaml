@@ -1,11 +1,22 @@
 name: Build Go App
 
 on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'api/**'
+      - '.github/workflows/**'
   push:
     branches:
       - main
     paths:
-      - 'web/'
+      - 'api/**'
+      - '.github/workflows/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
