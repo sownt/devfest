@@ -71,47 +71,66 @@ export default function CheckInPage() {
 
   return (
     <div className="relative isolate flex flex-col min-h-svh w-full bg-slate-200 items-center justify-center">
-      <div className="flex flex-col mx-auto max-w-3xl w-full p-8 gap-4">
-        <div className="flex justify-center">
-          <Image className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" />
+      <div className="flex flex-col lg:flex-row mx-auto max-w-6xl w-full p-8 gap-4">
+        <div className="flex lg:flex-1 flex-col gap-4">
+          <div className="flex">
+            <Image className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" />
+          </div>
+          <div className="p-4 rounded-lg shadow-lg bg-white">
+            <Spin spinning={spin}>
+              <div className="aspect-square rounded-md overflow-hidden">
+                <Scanner
+                  paused={id !== ""}
+                  allowMultiple={true}
+                  scanDelay={1500}
+                  components={{
+                    tracker: centerText,
+                    finder: false,
+                    torch: false,
+                  }}
+                  onScan={(result) =>
+                    spin || ticket !== null
+                      ? null
+                      : getTicket(result[0].rawValue)
+                  }
+                />
+              </div>
+            </Spin>
+          </div>
+          <Compact className="shadow-lg w-full">
+            <Input
+              placeholder="Nhập ticket id..."
+              size="large"
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+            />
+            <Button
+              type="primary"
+              size="large"
+              onClick={(e) => {
+                e.preventDefault();
+                getTicket(id);
+              }}
+            >
+              Kiểm tra
+            </Button>
+          </Compact>
         </div>
-        <div className="p-4 rounded-lg shadow-lg bg-white">
-          <Spin spinning={spin}>
-            <div className="aspect-square rounded-md overflow-hidden">
-              <Scanner
-                paused={id !== ""}
-                allowMultiple={true}
-                scanDelay={1500}
-                components={{
-                  tracker: centerText,
-                  finder: false,
-                  torch: false,
-                }}
-                onScan={(result) =>
-                  spin || ticket !== null ? null : getTicket(result[0].rawValue)
-                }
-              />
-            </div>
-          </Spin>
-        </div>
-        <Compact className="shadow-lg w-full">
-          <Input placeholder="Nhập ticket id..." size="large" />
-          <Button type="primary" size="large" loading={confirmLoading}>
-            Kiểm tra
-          </Button>
-        </Compact>
+        <div className="flex lg:flex-1"></div>
       </div>
       <Modal
-        className="relative translate-y-1/2 z-50"
+        centered
         title="Thông tin vé"
         open={ticket !== null}
         onOk={ticket?.used ? undefined : () => checkIn(id)}
-        okText={ticket?.used ? "Not available" : "Check In"}
+        okText={ticket?.used ? undefined : "Check In"}
         confirmLoading={confirmLoading}
         onCancel={() => {
           setTicket(null);
           setId("");
         }}
+        footer={ticket?.used ? null : undefined}
+        cancelText="Huỷ"
       >
         <div className="grid grid-cols-3 gap-4 my-8">
           <div className="font-semibold">Phiên</div>

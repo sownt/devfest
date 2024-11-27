@@ -2,10 +2,9 @@ name: Build API Docker Image
 
 on:
   push:
-    branches:
-      - migrate
-    # paths:
-    #   - 'api/'
+    branches: ["main"]
+    paths:
+      - 'api/'
 
 jobs:
   build:

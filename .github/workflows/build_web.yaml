@@ -2,11 +2,10 @@ name: Build Web Docker Image
 
 on:
   push:
-    branches:
-      - migrate
-    # paths-ignore:
-    #   - 'api/'
-    #   - 'admin_api/'
+    branches: ["main"]
+    paths-ignore:
+      - 'api/'
+      - 'admin_api/'
 
 jobs:
   build:
