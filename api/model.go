@@ -52,10 +52,10 @@ type User struct {
 
 type Event struct {
 	gorm.Model
-	Name        string `gorm:"not null"`
-	Description string `gorm:"nullable"`
-	StartTime   string `gorm:"nullable"`
-	EndTime     string `gorm:"nullable"`
+	Name        string       `gorm:"not null"`
+	Description string       `gorm:"nullable"`
+	StartTime   sql.NullTime `gorm:"nullable"`
+	EndTime     sql.NullTime `gorm:"nullable"`
 }
 
 type Ticket struct {
