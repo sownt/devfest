@@ -36,7 +36,11 @@ export default function CheckInPage() {
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/check-in/${ticketId}`,
         { withCredentials: true, validateStatus: (status) => status !== 500 }
       );
-      notification.success({ message: res.data["message"] });
+      if (res.status === 200) {
+        notification.success({ message: res.data["message"] });
+      } else {
+        notification.error({ message: res.data["message"] });
+      }
     } catch (error) {
       alert(error);
     } finally {
