@@ -120,7 +120,8 @@ export default function Home() {
     },
     {
       name: "Trường Nguyễn",
-      title: "Founder @ GDG Cloud Hanoi\nGoogle Developer Expert @ Google Cloud Platform",
+      title:
+        "Founder @ GDG Cloud Hanoi\nGoogle Developer Expert @ Google Cloud Platform",
       avatar: "/speakers/truong_nguyen.png",
     },
     {
@@ -135,7 +136,8 @@ export default function Home() {
     },
     {
       name: "Huy Đặng",
-      title: "Co-Lead @ GDG Cloud Hanoi\nGoogle Developer Expert @ Google Cloud Platform",
+      title:
+        "Co-Lead @ GDG Cloud Hanoi\nGoogle Developer Expert @ Google Cloud Platform",
       avatar: "/speakers/huy_dang.png",
     },
     {
@@ -175,7 +177,8 @@ export default function Home() {
     },
     {
       name: "Vũ Minh Hoàng",
-      title: "Senior Data Scientist @ Viettel Solutions\nLecturer @ Thang Long University",
+      title:
+        "Senior Data Scientist @ Viettel Solutions\nLecturer @ Thang Long University",
       avatar: "/speakers/vu_minh_hoang.png",
     },
   ];
@@ -361,6 +364,9 @@ export default function Home() {
               />
             </div>
           </div>
+          <div id="ticket" className="pt-24 px-4">
+            <RegisterForm />
+          </div>
           <div id="gallery" className="pt-24">
             <div className="mx-auto max-w-6xl mb-8 px-4">
               <h1 className="text-3xl font-bold">Gallery</h1>
@@ -374,9 +380,6 @@ export default function Home() {
                 link: "https://drive.google.com/drive/folders/1wYij6OMCsx9gxK-0LqTWZ9ZBmsIm8ZC1",
               }}
             />
-          </div>
-          <div id="ticket" className="pt-24 px-4">
-            <RegisterForm />
           </div>
           <div id="team" className="mx-auto max-w-6xl pt-24 px-4">
             <div className="mx-auto max-w-6xl mb-8 px-4">

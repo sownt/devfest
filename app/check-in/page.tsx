@@ -1,13 +1,31 @@
 "use client";
 import { centerText } from "@/misc/tracker";
 import { Scanner } from "@yudiel/react-qr-scanner";
-import { Modal, Spin } from "antd";
+import { Modal, notification, Spin } from "antd";
 import axios from "axios";
 import { useState } from "react";
+import logo from "@/public/logos/logo_colorful.png";
+import Image from "next/image";
+import { Button, Input, Space } from "antd";
+const { Compact } = Space;
+
+interface Attendee {
+  birthday: string;
+  checked_in: string;
+  company_email: string;
+  email: string;
+  event_id: number;
+  event_name: string;
+  experience: string;
+  job_title: string;
+  linked_in: string;
+  name: string;
+  used: boolean;
+}
 
 export default function CheckInPage() {
   const [id, setId] = useState("");
-  const [ticket, setTicket] = useState(null);
+  const [ticket, setTicket] = useState<Attendee | null>(null);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [spin, setSpin] = useState(false);
 
@@ -18,7 +36,7 @@ export default function CheckInPage() {
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/check-in/${ticketId}`,
         { withCredentials: true, validateStatus: (status) => status !== 500 }
       );
-      alert(res.data["message"]);
+      notification.success({ message: res.data["message"] });
     } catch (error) {
       alert(error);
     } finally {
@@ -38,7 +56,8 @@ export default function CheckInPage() {
       );
       setSpin(false);
       if (res.status === 200) {
-        setTicket(res.data);
+        const parsedData: Attendee = res.data;
+        setTicket(parsedData);
       } else {
         alert(res.data["message"]);
         setId("");
@@ -51,33 +70,76 @@ export default function CheckInPage() {
   }
 
   return (
-    <Spin spinning={spin}>
-      <div className="relative isolate flex flex-col min-h-svh w-full bg-slate-50/60">
-        <div id="about" className="pt-24 px-4">
-          <div className="mx-auto max-w-3xl px-4">
-            <Scanner
-              paused={id !== ""}
-              allowMultiple={true}
-              scanDelay={1000}
-              components={{ tracker: centerText }}
-              onScan={(result) => getTicket(result[0].rawValue)}
-            />
-            <Modal
-              title="Ticket Information"
-              open={ticket !== null}
-              onOk={() => checkIn(id)}
-              okText="Check In"
-              confirmLoading={confirmLoading}
-              onCancel={() => {
-                setTicket(null);
-                setId("");
-              }}
-            >
-              <div>{JSON.stringify(ticket, null, 4)}</div>
-            </Modal>
-          </div>
+    <div className="relative isolate flex flex-col min-h-svh w-full bg-slate-200 items-center justify-center">
+      <div className="flex flex-col mx-auto max-w-3xl w-full p-8 gap-4">
+        <div className="flex justify-center">
+          <Image className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" />
         </div>
+        <div className="p-4 rounded-lg shadow-lg bg-white">
+          <Spin spinning={spin}>
+            <div className="aspect-square rounded-md overflow-hidden">
+              <Scanner
+                paused={id !== ""}
+                allowMultiple={true}
+                scanDelay={1500}
+                components={{
+                  tracker: centerText,
+                  finder: false,
+                  torch: false,
+                }}
+                onScan={(result) =>
+                  spin || ticket !== null ? null : getTicket(result[0].rawValue)
+                }
+              />
+            </div>
+          </Spin>
+        </div>
+        <Compact className="shadow-lg w-full">
+          <Input placeholder="Nhập ticket id..." size="large" />
+          <Button type="primary" size="large" loading={confirmLoading}>
+            Kiểm tra
+          </Button>
+        </Compact>
       </div>
-    </Spin>
+      <Modal
+        className="relative translate-y-1/2 z-50"
+        title="Thông tin vé"
+        open={ticket !== null}
+        onOk={ticket?.used ? undefined : () => checkIn(id)}
+        okText={ticket?.used ? "Not available" : "Check In"}
+        confirmLoading={confirmLoading}
+        onCancel={() => {
+          setTicket(null);
+          setId("");
+        }}
+      >
+        <div className="grid grid-cols-3 gap-4 my-8">
+          <div className="font-semibold">Phiên</div>
+          <div className="font-semibold text-red-700 col-span-2">
+            {ticket?.event_name}
+          </div>
+          {ticket !== null ? (
+            <>
+              <div className="font-semibold">Checked In</div>
+              <div className="font-semibold text-red-700 col-span-2">
+                {ticket.used
+                  ? new Date(ticket.checked_in).toLocaleString("vi-VN")
+                  : "NA"}
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
+          <div className="font-semibold">Họ và tên</div>
+          <div className="col-span-2">{ticket?.name}</div>
+          <div className="font-semibold">Năm sinh</div>
+          <div className="col-span-2">{ticket?.birthday}</div>
+          <div className="font-semibold">Nghề nghiệp</div>
+          <div className="col-span-2">{ticket?.job_title}</div>
+          <div className="font-semibold">Kinh nghiệm</div>
+          <div className="col-span-2">{ticket?.experience}</div>
+        </div>
+      </Modal>
+    </div>
   );
 }

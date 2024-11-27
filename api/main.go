@@ -53,9 +53,13 @@ func main() {
 
 	// Routes
 	r.GET("/ping", Ping)
-	r.GET("/qr/:id", GenerateQrTicket)
+
 	r.POST("/login", Login)
 	//r.GET("/check-in/:id", CheckInEvent)
+
+	public := r.Group("/")
+	public.Use(cors.Default())
+	public.GET("/qr/:id", GenerateQrTicket)
 
 	authorized := r.Group("/", RequiredLogin())
 	{

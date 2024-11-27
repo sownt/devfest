@@ -3,9 +3,9 @@ import useFirebase from "@/hooks/useFirebase";
 import axios from "axios";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { GoogleOutlined } from "@ant-design/icons";
 import { Button, Spin } from "antd";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function LoginPage() {
   const { app } = useFirebase();
@@ -39,18 +39,24 @@ export default function LoginPage() {
   return (
     <div className="flex flex-col gap-4 items-center justify-center min-h-screen">
       <Button
-        type="primary"
+        type="text"
         icon={
-          loading ? <Spin wrapperClassName="text-white" /> : <GoogleOutlined />
+          loading ? (
+            <Spin className="text-black" />
+          ) : (
+            <Image
+              src={"/icons/google-icon.svg"}
+              alt="Google Icon"
+              width={0}
+              height={0}
+              className="w-8 h-8"
+            />
+          )
         }
-        size="large"
         onClick={handleGoogleLogin}
-        className="flex items-center justify-center shadow-lg bg-red-500 hover:bg-red-600 border-none rounded-md"
+        className="flex items-center justify-center shadow-lg bg-red-500 hover:bg-red-600 border-none rounded-md px-8 py-4"
       >
         Sign in with Google
-      </Button>
-      <Button type="text" onClick={() => router.push("/")}>
-        Back to Home
       </Button>
     </div>
   );

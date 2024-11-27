@@ -3,12 +3,26 @@ package main
 import (
 	"bytes"
 	"context"
+	"fmt"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/sesv2"
 	"github.com/aws/aws-sdk-go-v2/service/sesv2/types"
 	"html/template"
 )
+
+func ParseEmail(data any, templates ...string) (string, error) {
+	mail, err := template.ParseFiles(templates...)
+	if err != nil {
+		fmt.Println(err)
+	}
+	var htmlBody bytes.Buffer
+	err = mail.Execute(&htmlBody, data)
+	if err != nil {
+		return "", err
+	}
+	return string(htmlBody.Bytes()), nil
+}
 
 func ParseEmailBody(data any, body string) (string, error) {
 	mail := template.Must(template.New("").Parse(body))
