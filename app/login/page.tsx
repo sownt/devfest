@@ -53,7 +53,10 @@ export default function LoginPage() {
             />
           )
         }
-        onClick={handleGoogleLogin}
+        onClick={(e) => {
+          e.preventDefault();
+          handleGoogleLogin();
+        }}
         className="flex items-center justify-center shadow-lg bg-red-500 hover:bg-red-600 border-none rounded-md px-8 py-4"
       >
         Sign in with Google
