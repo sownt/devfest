@@ -20,7 +20,7 @@ import RandomSVGBackground from "@/components/Background/Background";
 import PersonalCard from "@/components/PersonalCard/PersonalCard";
 import { ConfigProvider, theme } from "antd";
 import { useTranslations } from "next-intl";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import SpeakerCard from "@/components/PersonalCard/SpeakerCard";
 
 export default function Home() {
   const t = useTranslations();
@@ -28,9 +28,8 @@ export default function Home() {
   const navItems = [
     { label: t("Home"), target: "home" },
     { label: t("About"), target: "about" },
-    { label: t("Gallery"), target: "gallery" },
-    // { label: t("Venue"), target: "venue" },
-    { label: t("Team"), target: "team" },
+    { label: t("Speakers"), target: "speakers" },
+    { label: t("Agenda"), target: "agenda" },
   ];
 
   const actionItem = { label: "Get ticket", target: "ticket" };
@@ -101,6 +100,87 @@ export default function Home() {
     { id: 2, title: "9", description: "Sessions" },
     { id: 3, title: "5", description: "Sponsorship\npartners" },
     { id: 4, title: "10", description: "Tech experts\n(Googlers, GDEs)" },
+  ];
+
+  const speakers = [
+    {
+      name: "Nhi Nguyễn",
+      title: "Community Manager\n@ Google Developer Relations SEA",
+      avatar: "/speakers/nhi_nguyen.png",
+    },
+    {
+      name: "Võ Tự Đức",
+      title: "CEO @ 2VO\nGoogle Developer Expert @ Google Workspace",
+      avatar: "/speakers/vo_tu_duc.png",
+    },
+    {
+      name: "Tú Phạm",
+      title: "CEO @ AdFlex\nGoogle Developer Expert @ Google Cloud Platform",
+      avatar: "/speakers/tu_pham.png",
+    },
+    {
+      name: "Trường Nguyễn",
+      title:
+        "Founder @ GDG Cloud Hanoi\nGoogle Developer Expert @ Google Cloud Platform",
+      avatar: "/speakers/truong_nguyen.png",
+    },
+    {
+      name: "Hoan Lê",
+      title: "Director of Corporate Customer @ Cloud Ace",
+      avatar: "/speakers/hoan_le.png",
+    },
+    {
+      name: "Nguyễn Xuân Hà",
+      title: "Data Analytics Specialist Lead @ Google Cloud Vietnam",
+      avatar: "/speakers/nguyen_xuan_ha.png",
+    },
+    {
+      name: "Huy Đặng",
+      title:
+        "Co-Lead @ GDG Cloud Hanoi\nGoogle Developer Expert @ Google Cloud Platform",
+      avatar: "/speakers/huy_dang.png",
+    },
+    {
+      name: "Tuấn Vũ",
+      title: "Solution Architect @ Cloud AZ",
+      avatar: "/speakers/tuan_vu.png",
+    },
+    {
+      name: "Tăng Trần",
+      title: "Cloud Engineer @ BIDV",
+      avatar: "/speakers/tang_tran.png",
+    },
+    {
+      name: "Trần Minh Tú",
+      title: "Data Scientist AAI-DnA @ Techcombank",
+      avatar: "/speakers/tran_minh_tu.png",
+    },
+    {
+      name: "Thái Hồ",
+      title: "Solution Consultant Presales @ CMC Telecom",
+      avatar: "/speakers/thai_ho.png",
+    },
+    {
+      name: "Violet Đặng",
+      title: "Customer Engineer @ Google",
+      avatar: "/speakers/violet_dang.png",
+    },
+    {
+      name: "Lê Thị Bích Thuận",
+      title: "Udemy Instructor Founder & CEO @ UDECAREER",
+      avatar: "/speakers/le_thi_bich_thuan.png",
+    },
+    {
+      name: "Cleo Credo",
+      title: "Digital MSME Engineering Lead Google Developer Expert @ Firebase",
+      avatar: "/speakers/cleo.png",
+    },
+    {
+      name: "Vũ Minh Hoàng",
+      title:
+        "Senior Data Scientist @ Viettel Solutions\nLecturer @ Thang Long University",
+      avatar: "/speakers/vu_minh_hoang.png",
+    },
   ];
 
   const teams = [
@@ -182,6 +262,12 @@ export default function Home() {
       description: "Operation Lead",
       socialLinks: [],
     },
+    {
+      name: "Luong PH",
+      avatar: "/teams/luong.jpeg",
+      description: "Media Lead",
+      socialLinks: ["https://www.linkedin.com/in/luongph151/"],
+    },
   ];
 
   const images = ["/icons/code.svg", "/icons/sharp.svg", "/icons/snow.svg"];
@@ -196,15 +282,125 @@ export default function Home() {
         },
       }}
     >
-      <GoogleReCaptchaProvider
-        reCaptchaKey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-      >
-        <RandomSVGBackground elements={images} />
-        <div id="home" className="relative z-[10]">
-          <div className="relative isolate flex flex-col min-h-svh w-full bg-slate-50/60">
-            <StickyHeader
-              navItems={navItems}
-              actionItem={actionItem}
+      <RandomSVGBackground elements={images} />
+      <div id="home" className="relative z-[10]">
+        <div className="relative isolate flex flex-col min-h-svh w-full bg-slate-50/60">
+          <StickyHeader
+            navItems={navItems}
+            actionItem={actionItem}
+            logo={
+              <Image className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" />
+            }
+          />
+          <HeroSection />
+          <div id="about" className="pt-24 px-4">
+            <div className="mx-auto max-w-6xl px-4">
+              <h1 className="text-3xl font-bold">About</h1>
+            </div>
+            <About
+              title="About"
+              description={
+                "Google Cloud DevFest Hanoi is one of the top tech events for developers in Hanoi, Vietnam. After four successful seasons, Google Cloud DevFest Hanoi 2024 is returning with a fresh format and many exciting activities that you won’t want to miss. Through in-depth discussions and hands-on workshops, you’ll have the opportunity to dive deep into topics such as Cloud Computing, AI and Data. Join us now!"
+              }
+              blocks={aboutData}
+            />
+          </div>
+          <div id="venue">
+            {/* <div className="mx-auto max-w-6xl mb-8 px-4">
+              <h1 className="text-3xl font-bold">Venue & Time</h1>
+            </div> */}
+            {process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY && (
+              <MapBlock
+                location={{
+                  mapCenter: {
+                    latitude: 21.017830590027167,
+                    longitude: 105.84193181415745,
+                  },
+                  pointer: {
+                    latitude: 21.017830590027167,
+                    longitude: 105.84193181415745,
+                    zoom: 18,
+                  },
+                  name: "Hotel du Parc HaNoi",
+                  description: "9:00 ~ 17:30, Nov 30",
+                  address:
+                    "84 P. Trần Nhân Tông, Nguyễn Du, Hai Bà Trưng, Hà Nội",
+                  link: "https://maps.app.goo.gl/2xd7ihaHqDyiQrkr6",
+                }}
+                googleMapApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+              />
+            )}
+          </div>
+          <div id="speakers" className="mx-auto max-w-6xl pt-24 px-4">
+            <div className="mx-auto max-w-6xl mb-8 px-4">
+              <h1 className="text-3xl font-bold">Speakers</h1>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 content-center">
+              {speakers.map((item, index) => (
+                <SpeakerCard
+                  key={index}
+                  name={item.name}
+                  title={item.title}
+                  avatar={item.avatar}
+                />
+              ))}
+            </div>
+          </div>
+          <div id="agenda" className="mx-auto max-w-6xl pt-24 px-4">
+            <div className="w-full">
+              <Image
+                src={"/agenda.png"}
+                alt=""
+                width={3840}
+                height={4122}
+                className="hidden sm:block w-full h-auto"
+              />
+              <Image
+                src={"/agenda_mobile.png"}
+                alt=""
+                width={1456}
+                height={8146}
+                className="sm:hidden w-full h-auto"
+              />
+            </div>
+          </div>
+          <div id="ticket" className="pt-24 px-4">
+            <RegisterForm />
+          </div>
+          <div id="gallery" className="pt-24">
+            <div className="mx-auto max-w-6xl mb-8 px-4">
+              <h1 className="text-3xl font-bold">Gallery</h1>
+            </div>
+            <Gallery
+              photos={photoGallery}
+              title="DevFest Cloud Hanoi 2023"
+              description=""
+              callToAction={{
+                label: "SEE ALL PHOTOS",
+                link: "https://drive.google.com/drive/folders/1wYij6OMCsx9gxK-0LqTWZ9ZBmsIm8ZC1",
+              }}
+            />
+          </div>
+          <div id="team" className="mx-auto max-w-6xl pt-24 px-4">
+            <div className="mx-auto max-w-6xl mb-8 px-4">
+              <h1 className="text-3xl font-bold">Core Team</h1>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 content-center">
+              {teams.map((item, index) => (
+                <PersonalCard
+                  key={index}
+                  name={item.name}
+                  avatar={item.avatar}
+                  description={item.description}
+                  socialLinks={item.socialLinks}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="mt-8">
+            <Footer
+              socialLinks={socialLinks}
+              navLinkCategories={navLinkCategories}
               logo={
                 <Image
                   className="h-8 w-auto"
@@ -212,96 +408,11 @@ export default function Home() {
                   alt="GDG Cloud Hanoi"
                 />
               }
+              copyright="© 2024 All rights reserved."
             />
-            <HeroSection />
-            <div id="about" className="pt-24 px-4">
-              <div className="mx-auto max-w-6xl px-4">
-                <h1 className="text-3xl font-bold">About</h1>
-              </div>
-              <About
-                title="About"
-                description={
-                  "Google Cloud DevFest Hanoi is one of the top tech events for developers in Hanoi, Vietnam. After four successful seasons, Google Cloud DevFest Hanoi 2024 is returning with a fresh format and many exciting activities that you won’t want to miss. Through in-depth discussions and hands-on workshops, you’ll have the opportunity to dive deep into topics such as Cloud Computing, AI and Data. Join us now!"
-                }
-                blocks={aboutData}
-              />
-            </div>
-            <div id="venue">
-              {/* <div className="mx-auto max-w-6xl mb-8 px-4">
-              <h1 className="text-3xl font-bold">Venue & Time</h1>
-            </div> */}
-              {process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY && (
-                <MapBlock
-                  location={{
-                    mapCenter: {
-                      latitude: 21.017830590027167,
-                      longitude: 105.84193181415745,
-                    },
-                    pointer: {
-                      latitude: 21.017830590027167,
-                      longitude: 105.84193181415745,
-                      zoom: 18,
-                    },
-                    name: "Hotel du Parc HaNoi",
-                    description: "9:00 ~ 17:30, Nov 30",
-                    address:
-                      "84 P. Trần Nhân Tông, Nguyễn Du, Hai Bà Trưng, Hà Nội",
-                    link: "https://maps.app.goo.gl/2xd7ihaHqDyiQrkr6",
-                  }}
-                  googleMapApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-                />
-              )}
-            </div>
-            <div id="gallery" className="pt-24">
-              <div className="mx-auto max-w-6xl mb-8 px-4">
-                <h1 className="text-3xl font-bold">Gallery</h1>
-              </div>
-              <Gallery
-                photos={photoGallery}
-                title="DevFest Cloud Hanoi 2023"
-                description=""
-                callToAction={{
-                  label: "SEE ALL PHOTOS",
-                  link: "https://drive.google.com/drive/folders/1wYij6OMCsx9gxK-0LqTWZ9ZBmsIm8ZC1",
-                }}
-              />
-            </div>
-            <div id="ticket" className="pt-24 px-4">
-              <RegisterForm />
-            </div>
-            <div id="team" className="mx-auto max-w-6xl pt-24 px-4">
-              <div className="mx-auto max-w-6xl mb-8 px-4">
-                <h1 className="text-3xl font-bold">Team</h1>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 content-center">
-                {teams.map((item, index) => (
-                  <PersonalCard
-                    key={index}
-                    name={item.name}
-                    avatar={item.avatar}
-                    description={item.description}
-                    socialLinks={item.socialLinks}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="mt-8">
-              <Footer
-                socialLinks={socialLinks}
-                navLinkCategories={navLinkCategories}
-                logo={
-                  <Image
-                    className="h-8 w-auto"
-                    src={logo}
-                    alt="GDG Cloud Hanoi"
-                  />
-                }
-                copyright="© 2024 All rights reserved."
-              />
-            </div>
           </div>
         </div>
-      </GoogleReCaptchaProvider>
+      </div>
     </ConfigProvider>
   );
 }
