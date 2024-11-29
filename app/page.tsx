@@ -2,7 +2,6 @@
 import React from "react";
 import HeroSection from "@/components/Hero/HeroSection";
 import StickyHeader from "@/components/Header/StickyHeader";
-import RegisterForm from "@/components/RegisterForm/RegisterForm";
 import {
   FaFacebook,
   FaXTwitter,
@@ -287,7 +286,7 @@ export default function Home() {
         <div className="relative isolate flex flex-col min-h-svh w-full bg-slate-50/60">
           <StickyHeader
             navItems={navItems}
-            actionItem={actionItem}
+            // actionItem={actionItem}
             logo={
               <Image className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" />
             }
@@ -364,9 +363,9 @@ export default function Home() {
               />
             </div>
           </div>
-          <div id="ticket" className="pt-24 px-4">
+          {/* <div id="ticket" className="pt-24 px-4">
             <RegisterForm />
-          </div>
+          </div> */}
           <div id="gallery" className="pt-24">
             <div className="mx-auto max-w-6xl mb-8 px-4">
               <h1 className="text-3xl font-bold">Gallery</h1>

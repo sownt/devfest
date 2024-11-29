@@ -9,7 +9,7 @@ interface NavItem {
 
 interface StickyHeaderProps {
   navItems: NavItem[];
-  actionItem: NavItem;
+  actionItem?: NavItem;
   logo: React.ReactNode;
 }
 
@@ -91,27 +91,35 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
                   </button>
                 </li>
               ))}
-              <li key={actionItem.target} className="flex items-center">
-                <button
-                  onClick={() => scrollToSection(actionItem.target)}
-                  className={`transition-colors duration-500 ${
-                    isScrolled ? "text-gray-700" : "text-gray-700"
-                  } sm:p-3 sm:bg-[#34a853]/80 sm:hover:bg-[#34a853]/90 font-bold sm:rounded-lg sm:shadow-lg sm:transition-transform sm:duration-300 sm:transform sm:hover:scale-105`}
-                >
-                  {actionItem.label}
-                </button>
-              </li>
+              {actionItem ? (
+                <li key={actionItem.target} className="flex items-center">
+                  <button
+                    onClick={() => scrollToSection(actionItem.target)}
+                    className={`transition-colors duration-500 ${
+                      isScrolled ? "text-gray-700" : "text-gray-700"
+                    } sm:p-3 sm:bg-[#34a853]/80 sm:hover:bg-[#34a853]/90 font-bold sm:rounded-lg sm:shadow-lg sm:transition-transform sm:duration-300 sm:transform sm:hover:scale-105`}
+                  >
+                    {actionItem.label}
+                  </button>
+                </li>
+              ) : (
+                <></>
+              )}
             </ul>
           </nav>
           <div className="flex items-center md:hidden gap-4">
-            <button
-              onClick={() => scrollToSection(actionItem.target)}
-              className={`px-4 py-2 bg-[#34a853]/80 hover:bg-[#34a853]/90 font-bold rounded-3xl shadow-lg transition-transform duration-300 transform hover:scale-105 ${
-                isScrolled ? "text-gray-700" : "text-white"
-              }`}
-            >
-              {actionItem.label}
-            </button>
+            {actionItem ? (
+              <button
+                onClick={() => scrollToSection(actionItem.target)}
+                className={`px-4 py-2 bg-[#34a853]/80 hover:bg-[#34a853]/90 font-bold rounded-3xl shadow-lg transition-transform duration-300 transform hover:scale-105 ${
+                  isScrolled ? "text-gray-700" : "text-white"
+                }`}
+              >
+                {actionItem.label}
+              </button>
+            ) : (
+              <></>
+            )}
             <MenuOutlined
               className={`text-2xl cursor-pointer transition-colors duration-500 ${
                 isScrolled ? "text-gray-700" : "text-gray-700"
