@@ -31,7 +31,7 @@ export default function Home() {
     { label: t("Agenda"), target: "agenda" },
   ];
 
-  const actionItem = { label: "Get ticket", target: "ticket" };
+  // const actionItem = { label: "Get ticket", target: "ticket" };
 
   const socialLinks = [
     {
