@@ -30,6 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       <div className="mx-auto max-w-6xl px-8">
         <div>
           <Image
+            unoptimized
             src={banner}
             alt="Google Cloud DevFest 2024"
             className={`hidden sm:block w-full h-auto object-contain z-[-1] transition-opacity duration-1000 ${
@@ -39,6 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           />
           <div className="block sm:hidden w-full h-auto">
             <Image
+              unoptimized
               src={bannerMobile}
               alt="Google Cloud DevFest 2024"
               className={`sm:hidden w-full h-auto object-contain z-[-1] transition-opacity duration-1000 ${

@@ -78,7 +78,7 @@ export default function CheckInPage() {
       <div className="flex flex-col lg:flex-row mx-auto max-w-6xl w-full p-8 gap-4">
         <div className="flex lg:flex-1 flex-col gap-4">
           <div className="flex">
-            <Image className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" />
+            <Image unoptimized className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" />
           </div>
           <div className="p-4 rounded-lg shadow-lg bg-white">
             <Spin spinning={spin}>

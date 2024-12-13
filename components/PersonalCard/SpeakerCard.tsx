@@ -10,6 +10,7 @@ const SpeakerCard: React.FC<SpeakerProps> = ({ name, title, avatar }) => {
   return (
     <div className="flex flex-col items-center text-center">
       <Image
+        unoptimized
         src={avatar}
         alt=""
         width={100}

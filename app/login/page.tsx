@@ -45,6 +45,7 @@ export default function LoginPage() {
             <Spin className="text-black" />
           ) : (
             <Image
+              unoptimized
               src={"/icons/google-icon.svg"}
               alt="Google Icon"
               width={0}

@@ -289,7 +289,7 @@ export default function Home() {
             navItems={navItems}
             // actionItem={actionItem}
             logo={
-              <Image className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" />
+              <Image className="h-8 w-auto" src={logo} alt="GDG Cloud Hanoi" unoptimized />
             }
           />
           <HeroSection />
@@ -349,6 +349,7 @@ export default function Home() {
           <div id="agenda" className="mx-auto max-w-6xl pt-24 px-4">
             <div className="w-full">
               <Image
+                unoptimized
                 src={"/agenda.png"}
                 alt=""
                 width={3840}
@@ -356,6 +357,7 @@ export default function Home() {
                 className="hidden sm:block w-full h-auto"
               />
               <Image
+                unoptimized
                 src={"/agenda_mobile.png"}
                 alt=""
                 width={1456}
@@ -403,6 +405,7 @@ export default function Home() {
               navLinkCategories={navLinkCategories}
               logo={
                 <Image
+                  unoptimized
                   className="h-8 w-auto"
                   src={logo}
                   alt="GDG Cloud Hanoi"

@@ -23,6 +23,7 @@ const Gallery: React.FC<GalleryBlockProps> = ({ photos, title, description, call
         {photos.map((photo, index) => (
           <div key={index} className={`relative aspect-w-1 aspect-h-1 bg-gray-200 ${getGridItemStyles(index)}`}>
             <Image
+              unoptimized
               src={photo.url}
               alt={`Gallery item ${index + 1}`}
               fill
