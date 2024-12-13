@@ -359,12 +359,13 @@ export default function RegisterForm() {
 
           <Button
             block
+            disabled
             type="primary"
             htmlType="submit"
             loading={isLoading}
             className="w-full h-12 rounded-xl bg-[#34a853]/80 hover:bg-[#34a853]/90 text-white font-bold col-span-2 hover:shadow-lg"
           >
-            Register
+            Registration closed
           </Button>
         </Form>
       </Spin>

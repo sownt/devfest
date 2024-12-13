@@ -20,6 +20,7 @@ import PersonalCard from "@/components/PersonalCard/PersonalCard";
 import { ConfigProvider, theme } from "antd";
 import { useTranslations } from "next-intl";
 import SpeakerCard from "@/components/PersonalCard/SpeakerCard";
+import RegisterForm from "@/components/RegisterForm/RegisterForm";
 
 export default function Home() {
   const t = useTranslations();
@@ -363,9 +364,9 @@ export default function Home() {
               />
             </div>
           </div>
-          {/* <div id="ticket" className="pt-24 px-4">
+          <div id="ticket" className="pt-24 px-4">
             <RegisterForm />
-          </div> */}
+          </div>
           <div id="gallery" className="pt-24">
             <div className="mx-auto max-w-6xl mb-8 px-4">
               <h1 className="text-3xl font-bold">Gallery</h1>
